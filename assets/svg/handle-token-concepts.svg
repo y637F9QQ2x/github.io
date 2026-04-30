@@ -1,0 +1,68 @@
+<svg viewBox="0 0 860 464" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="464">
+<rect width="860" height="464" fill="#fff"/>
+<g transform="translate(40, 0)">
+<defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#999"/>
+</marker>
+</defs>
+<text x="390" y="36" text-anchor="middle" font-size="12" font-weight="500" fill="#111" letter-spacing="0.05em">WINDOWS INTERNALS — HANDLES AND TOKENS</text>
+<line x1="20" y1="46" x2="760" y2="46" stroke="#eee" stroke-width="1"/>
+<text x="390" y="68" text-anchor="middle" font-size="9" font-weight="500" fill="#666" letter-spacing="0.04em">HANDLE TABLES ARE PROCESS-LOCAL — SAME NUMBER CAN POINT TO DIFFERENT OBJECTS</text>
+<rect x="0" y="84" width="210" height="112" rx="0" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<rect x="0" y="84" width="210" height="28" fill="#111"/>
+<text x="105" y="103" text-anchor="middle" font-size="9" font-weight="500" fill="#ccc" letter-spacing="0.05em">BFE PROCESS (PID 840)</text>
+<rect x="1" y="112" width="208" height="28" fill="#fafafa"/>
+<text x="14" y="131" text-anchor="start" font-size="10" font-weight="500" fill="#333">0x1A4</text>
+<text x="196" y="131" text-anchor="end" font-size="9" font-weight="300" fill="#555">File</text>
+<rect x="1" y="140" width="208" height="28" fill="#fff"/>
+<line x1="0" y1="140" x2="210" y2="140" stroke="#eee" stroke-width="1"/>
+<text x="14" y="159" text-anchor="start" font-size="10" font-weight="500" fill="#333">0x2B0</text>
+<text x="196" y="159" text-anchor="end" font-size="9" font-weight="300" fill="#555">Process</text>
+<rect x="1" y="168" width="208" height="28" fill="#fafafa"/>
+<line x1="0" y1="168" x2="210" y2="168" stroke="#eee" stroke-width="1"/>
+<text x="14" y="187" text-anchor="start" font-size="10" font-weight="500" fill="#333">0x3CC</text>
+<text x="196" y="187" text-anchor="end" font-size="9" font-weight="300" fill="#555">Token</text>
+<rect x="570" y="84" width="210" height="112" rx="0" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<rect x="570" y="84" width="210" height="28" fill="#111"/>
+<text x="675" y="103" text-anchor="middle" font-size="9" font-weight="500" fill="#ccc" letter-spacing="0.05em">LSASS.EXE (PID 680)</text>
+<rect x="571" y="112" width="208" height="28" fill="#fafafa"/>
+<text x="584" y="131" text-anchor="start" font-size="10" font-weight="500" fill="#333">0x088</text>
+<text x="766" y="131" text-anchor="end" font-size="9" font-weight="300" fill="#555">File</text>
+<rect x="571" y="140" width="208" height="28" fill="#fff"/>
+<line x1="570" y1="140" x2="780" y2="140" stroke="#eee" stroke-width="1"/>
+<text x="584" y="159" text-anchor="start" font-size="10" font-weight="500" fill="#333">0x1A4</text>
+<text x="766" y="159" text-anchor="end" font-size="9" font-weight="300" fill="#555">Token</text>
+<rect x="571" y="168" width="208" height="28" fill="#fafafa"/>
+<line x1="570" y1="168" x2="780" y2="168" stroke="#eee" stroke-width="1"/>
+<text x="584" y="187" text-anchor="start" font-size="10" font-weight="500" fill="#333">0x210</text>
+<text x="766" y="187" text-anchor="end" font-size="9" font-weight="300" fill="#555">Process</text>
+<text x="390" y="94" text-anchor="middle" font-size="8" font-weight="500" fill="#666" letter-spacing="0.06em">KERNEL OBJECTS</text>
+<rect x="310" y="118" width="160" height="32" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="390" y="139" text-anchor="middle" font-size="9.5" font-weight="400" fill="#333">\Device\WfpAle</text>
+<rect x="310" y="162" width="160" height="32" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="390" y="183" text-anchor="middle" font-size="9.5" font-weight="400" fill="#333">lsass.exe process</text>
+<rect x="310" y="206" width="160" height="32" rx="0" fill="#111" stroke="#ddd" stroke-width="1"/>
+<text x="390" y="227" text-anchor="middle" font-size="9.5" font-weight="400" fill="#fff">SYSTEM token</text>
+<line x1="210" y1="126" x2="310" y2="134" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowG)"/>
+<line x1="210" y1="182" x2="310" y2="222" stroke="#c33" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowG)"/>
+<line x1="570" y1="154" x2="470" y2="222" stroke="#c33" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowG)"/>
+<line x1="570" y1="182" x2="470" y2="178" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowG)"/>
+<text x="390" y="288" text-anchor="middle" font-size="9" font-weight="500" fill="#666" letter-spacing="0.07em">PRIMARY TOKEN VS IMPERSONATION TOKEN</text>
+<rect x="30" y="306" width="340" height="110" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="200" y="326" text-anchor="middle" font-size="9" font-weight="500" fill="#666" letter-spacing="0.05em">PRIMARY TOKEN</text>
+<line x1="38" y1="334" x2="362" y2="334" stroke="#eee" stroke-width="1"/>
+<text x="200" y="352" text-anchor="middle" font-size="10" font-weight="400" fill="#333">Attached to the process</text>
+<text x="200" y="368" text-anchor="middle" font-size="10" font-weight="400" fill="#333">Defines the process identity</text>
+<text x="200" y="388" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Required by CreateProcessWithTokenW</text>
+<text x="200" y="402" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Cannot be used with NtSetInformationThread</text>
+<rect x="410" y="306" width="340" height="110" rx="0" fill="#111" stroke="#333" stroke-width="1"/>
+<text x="580" y="326" text-anchor="middle" font-size="9" font-weight="500" fill="#c33" letter-spacing="0.05em">IMPERSONATION TOKEN</text>
+<line x1="418" y1="334" x2="742" y2="334" stroke="#333" stroke-width="1"/>
+<text x="580" y="352" text-anchor="middle" font-size="10" font-weight="400" fill="#eee">Attached to a single thread</text>
+<text x="580" y="368" text-anchor="middle" font-size="10" font-weight="400" fill="#eee">Overrides the process identity</text>
+<text x="580" y="388" text-anchor="middle" font-size="9" font-weight="300" fill="#aaa">Set via NtSetInformationThread</text>
+<text x="580" y="402" text-anchor="middle" font-size="9" font-weight="300" fill="#aaa">Persists until token revert</text>
+<text x="390" y="442" text-anchor="middle" font-size="9" font-weight="300" fill="#666">NOFILTER retrieves a primary token via IOCTL, converts it to impersonation with NtDuplicateToken, then applies it to the thread.</text>
+</g>
+</svg>

@@ -1,0 +1,72 @@
+theme: jekyll-theme-chirpy
+theme_mode: light
+
+lang: en
+timezone: Asia/Tokyo
+
+title: "Kazuma Matsumoto"
+tagline: "Offensive Security / AI"
+description: >-
+  Vulnerability research, AI-assisted security analysis,
+  and offensive security.
+
+url: "https://y637f9qq2x.com"
+baseurl: ""
+
+github:
+  username: y637F9QQ2x
+
+social:
+  name: Kazuma Matsumoto
+  links:
+    - "https://github.com/y637F9QQ2x"
+    - "https://www.linkedin.com/in/y637f9qq2x"
+
+seo:
+  type: Person
+  name: "Kazuma Matsumoto"
+  links:
+    - "https://github.com/y637F9QQ2x"
+    - "https://www.linkedin.com/in/y637f9qq2x"
+
+avatar: "/assets/img/avatar.png"
+toc: true
+comments:
+  active: ""
+paginate: 10
+permalink: /posts/:title/
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - README.md
+  - LICENSE
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/

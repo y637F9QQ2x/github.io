@@ -1,0 +1,28 @@
+<svg viewBox="0 0 860 210" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="210">
+<rect width="860" height="210" fill="#fff"/>
+<g transform="translate(40, 0)">
+<text x="390" y="32" text-anchor="middle" font-size="11" font-weight="500" fill="#111" letter-spacing="0.04em">NtQueryObject — Deadlock-Safe Handle Scanning</text>
+<line x1="20" y1="40" x2="760" y2="40" stroke="#eee" stroke-width="1"/>
+<rect x="0" y="52" width="375" height="116" rx="0" fill="#fff" stroke="#c33" stroke-width="1.5"/>
+<rect x="0" y="52" width="375" height="26" fill="#c33"/>
+<text x="187" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#fff" letter-spacing="0.06em">PROBLEM</text>
+<text x="187" y="100" text-anchor="middle" font-size="9" font-weight="300" fill="#333">NtQueryObject(ObjectNameInformation)</text>
+<text x="187" y="116" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Can deadlock on named pipes, ALPC ports</text>
+<text x="187" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Deadlock happens inside the kernel</text>
+<text x="187" y="148" text-anchor="middle" font-size="9" font-weight="300" fill="#333">BOF thread hangs forever, no recovery</text>
+<rect x="405" y="52" width="375" height="116" rx="0" fill="#fff" stroke="#2a7" stroke-width="1.5"/>
+<rect x="405" y="52" width="375" height="26" fill="#2a7"/>
+<text x="592" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#fff" letter-spacing="0.06em">SOLUTION</text>
+<text x="592" y="100" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Query ObjectTypeInformation FIRST</text>
+<text x="592" y="116" text-anchor="middle" font-size="9" font-weight="300" fill="#333">(This never deadlocks)</text>
+<text x="592" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Check: is the handle type 'File'?</text>
+<text x="592" y="148" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Only then query ObjectNameInformation</text>
+<line x1="379" y1="110" x2="401" y2="110" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<text x="390" y="188" text-anchor="middle" font-size="8.5" font-weight="300" fill="#666">Cache the type index after first lookup — avoids repeated NtQueryObject calls for subsequent handles.</text>
+<defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#999"/>
+</marker>
+</defs>
+</g>
+</svg>

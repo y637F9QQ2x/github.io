@@ -1,0 +1,64 @@
+<svg viewBox="0 0 860 680" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="680">
+<rect width="860" height="680" fill="#fff"/>
+<defs>
+<marker id="arrowGray" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#c8c8c8"/>
+</marker>
+<marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#B03020"/>
+</marker>
+</defs>
+<g transform="translate(40,0)">
+<text x="390" y="24" text-anchor="middle" font-size="9" font-weight="500" fill="#888" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">BTstack AVRCP — OUT-OF-BOUNDS READ (CVE-2026-28526 / 28527 / 28528)</text>
+<text x="390" y="40" text-anchor="middle" font-size="10.5" font-weight="400" fill="#888" font-family="Helvetica Neue, Arial, sans-serif">Three handlers share the same root cause:</text>
+<text x="390" y="56" text-anchor="middle" font-size="10.5" font-weight="400" fill="#888" font-family="Helvetica Neue, Arial, sans-serif">attacker-controlled count field trusted before packet boundary is verified</text>
+<line x1="0" y1="64" x2="780" y2="64" stroke="#ebebeb" stroke-width="1"/>
+<rect x="180" y="68" width="420" height="46" fill="#f0f0f0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="390" y="82" text-anchor="middle" font-size="8" font-weight="500" fill="#999" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.07em">ATTACKER (paired Bluetooth Classic)</text>
+<line x1="186" y1="88" x2="594" y2="88" stroke="#ddd" stroke-width="1"/>
+<text x="390" y="101" text-anchor="middle" font-size="10.5" font-weight="400" fill="#555" font-family="Helvetica Neue, Arial, sans-serif">Sends crafted AVRCP response with attacker-controlled count value</text>
+<line x1="390" y1="114" x2="390" y2="140" stroke="#c8c8c8" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+<rect x="180" y="140" width="420" height="60" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1"/>
+<text x="390" y="156" text-anchor="middle" font-size="8" font-weight="500" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.07em">1   HANDLER READS COUNT FIELD FROM PACKET</text>
+<line x1="186" y1="162" x2="594" y2="162" stroke="#e8e8e8" stroke-width="1"/>
+<text x="390" y="181" text-anchor="middle" font-size="11" font-weight="500" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">num_attributes = packet[pos++]</text>
+<line x1="390" y1="200" x2="390" y2="226" stroke="#c8c8c8" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+<rect x="180" y="226" width="420" height="60" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1"/>
+<text x="390" y="242" text-anchor="middle" font-size="8" font-weight="500" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.07em">2   LOOP READS DATA FOR EACH ITEM</text>
+<line x1="186" y1="248" x2="594" y2="248" stroke="#e8e8e8" stroke-width="1"/>
+<text x="390" y="267" text-anchor="middle" font-size="11" font-weight="400" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">for (i = 0; i &lt; count; i++) { read N bytes }</text>
+<line x1="390" y1="286" x2="390" y2="312" stroke="#c8c8c8" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+<rect x="180" y="312" width="420" height="60" fill="#fff8f0" stroke="#e8a050" stroke-width="1.5"/>
+<rect x="180" y="312" width="4" height="60" fill="#d07820"/>
+<text x="390" y="328" text-anchor="middle" font-size="8" font-weight="600" fill="#d07820" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.07em">3   MISSING: VERIFY PACKET HAS ENOUGH BYTES</text>
+<line x1="186" y1="334" x2="594" y2="334" stroke="#e8c090" stroke-width="1"/>
+<text x="390" y="347" text-anchor="middle" font-size="11" font-weight="500" fill="#7a4400" font-family="Helvetica Neue, Arial, sans-serif">No check before the loop —</text>
+<text x="390" y="361" text-anchor="middle" font-size="11" font-weight="500" fill="#7a4400" font-family="Helvetica Neue, Arial, sans-serif">attacker controls how many bytes are read</text>
+<line x1="390" y1="372" x2="390" y2="396" stroke="#c8c8c8" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+<polygon points="390,396 490,432 390,468 290,432" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="390" y="425" text-anchor="middle" font-size="10.5" font-weight="400" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">Does packet have</text>
+<text x="390" y="441" text-anchor="middle" font-size="10.5" font-weight="400" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">enough bytes?</text>
+<line x1="490" y1="432" x2="668" y2="432" stroke="#B03020" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+<text x="579" y="422" text-anchor="middle" font-size="8.5" font-weight="600" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.06em">NO</text>
+<rect x="668" y="404" width="112" height="56" fill="#B03020"/>
+<text x="724" y="419" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif">OOB Read</text>
+<text x="724" y="434" text-anchor="middle" font-size="9" font-weight="400" fill="#ffc0b0" font-family="Helvetica Neue, Arial, sans-serif">Reads beyond</text>
+<text x="724" y="447" text-anchor="middle" font-size="9" font-weight="400" fill="#ffc0b0" font-family="Helvetica Neue, Arial, sans-serif">packet buffer</text>
+<line x1="390" y1="468" x2="390" y2="494" stroke="#c8c8c8" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+<text x="398" y="482" text-anchor="start" font-size="8.5" font-weight="600" fill="#c8c8c8" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.06em">YES</text>
+<rect x="180" y="494" width="420" height="50" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1"/>
+<text x="390" y="523" text-anchor="middle" font-size="12" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">Process attributes normally within bounds</text>
+<rect x="0" y="568" width="780" height="80" fill="none" stroke="#ebebeb" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="390" y="582" text-anchor="middle" font-size="8.5" font-weight="500" fill="#888" font-family="Helvetica Neue, Arial, sans-serif">Three handlers — same root cause pattern</text>
+<line x1="0" y1="590" x2="780" y2="590" stroke="#ebebeb" stroke-width="1"/>
+<text x="89" y="601" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-28526</text>
+<text x="348" y="601" text-anchor="middle" font-size="8.5" font-weight="400" fill="#555" font-family="Helvetica Neue, Arial, sans-serif">LIST_PLAYER_APPLICATION_SETTING_ATTRIBUTES/VALUES</text>
+<text x="654" y="601" text-anchor="middle" font-size="8.5" font-weight="400" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">count × 1 byte</text>
+<text x="89" y="621" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-28527</text>
+<text x="348" y="621" text-anchor="middle" font-size="8.5" font-weight="400" fill="#555" font-family="Helvetica Neue, Arial, sans-serif">GET_PLAYER_APPLICATION_SETTING_TEXT handlers</text>
+<text x="654" y="621" text-anchor="middle" font-size="8.5" font-weight="400" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">count × 4+ bytes</text>
+<text x="89" y="641" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-28528</text>
+<text x="348" y="641" text-anchor="middle" font-size="8.5" font-weight="400" fill="#555" font-family="Helvetica Neue, Arial, sans-serif">GET_FOLDER_ITEMS  (Browsing Target)</text>
+<text x="654" y="641" text-anchor="middle" font-size="8.5" font-weight="400" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">attr_count × 4 bytes + UB shift</text>
+
+</g></svg>

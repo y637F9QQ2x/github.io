@@ -1,0 +1,30 @@
+<svg viewBox="0 0 860 226" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="226">
+<rect width="860" height="226" fill="#fff"/>
+<g transform="translate(40, 0)">
+<text x="390" y="32" text-anchor="middle" font-size="11" font-weight="500" fill="#111" letter-spacing="0.04em">COM Vtable — Slot Counting</text>
+<line x1="20" y1="40" x2="760" y2="40" stroke="#eee" stroke-width="1"/>
+<rect x="0" y="52" width="375" height="132" rx="0" fill="#fff" stroke="#c33" stroke-width="1.5"/>
+<rect x="0" y="52" width="375" height="26" fill="#c33"/>
+<text x="187" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#fff" letter-spacing="0.06em">PROBLEM</text>
+<text x="187" y="100" text-anchor="middle" font-size="9" font-weight="300" fill="#333">COM methods are called by vtable index</text>
+<text x="187" y="116" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Wrong index = wrong function called = crash</text>
+<text x="187" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#333">AppDomain has 7 events</text>
+<text x="187" y="148" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Each event has add_ + remove_ = 14 slots</text>
+<text x="187" y="164" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Counting only event names gives 10 (wrong)</text>
+<rect x="405" y="52" width="375" height="132" rx="0" fill="#fff" stroke="#2a7" stroke-width="1.5"/>
+<rect x="405" y="52" width="375" height="26" fill="#2a7"/>
+<text x="592" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#fff" letter-spacing="0.06em">SOLUTION</text>
+<text x="592" y="100" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Always count from IUnknown (3 slots)</text>
+<text x="592" y="116" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Add IDispatch (4 slots) = 7 total</text>
+<text x="592" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Count ALL methods including event pairs</text>
+<text x="592" y="148" text-anchor="middle" font-size="9" font-weight="300" fill="#333">AppDomain.Load_3 = slot 45</text>
+<text x="592" y="164" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Assembly.EntryPoint=16, MethodInfo.Invoke_3=37</text>
+<line x1="379" y1="118" x2="401" y2="118" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<text x="390" y="204" text-anchor="middle" font-size="8.5" font-weight="300" fill="#666">Verify slot counts against the actual COM interface definition, not documentation summaries.</text>
+<defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#999"/>
+</marker>
+</defs>
+</g>
+</svg>

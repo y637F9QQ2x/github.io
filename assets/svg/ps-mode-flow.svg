@@ -1,0 +1,58 @@
+<svg viewBox="0 0 860 438" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="438">
+<rect width="860" height="438" fill="#fff"/>
+<g transform="translate(40, 0)">
+<defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#999"/>
+</marker>
+</defs>
+<text x="390" y="36" text-anchor="middle" font-size="12" font-weight="500" fill="#111" letter-spacing="0.05em">NFEXEC POWERSHELL MODE — INLINE CLR HOSTING PIPELINE</text>
+<line x1="20" y1="46" x2="760" y2="46" stroke="#eee" stroke-width="1"/>
+<rect x="30" y="62" width="340" height="70" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="200" y="84" text-anchor="middle" font-size="10" font-weight="500" fill="#333">1. Init Syscall Infrastructure</text>
+<text x="200" y="102" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">PEB walk finds ntdll base address,</text>
+<text x="200" y="116" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">extract SSN via Halo's Gate, find gadget</text>
+<line x1="370" y1="97" x2="410" y2="97" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="410" y="62" width="340" height="70" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="580" y="84" text-anchor="middle" font-size="10" font-weight="500" fill="#333">2. Start CLR Runtime</text>
+<text x="580" y="102" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">CLRCreateInstance + GetRuntime(v4.0)</text>
+<text x="580" y="116" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">IsLoadable check + Start()</text>
+<line x1="580" y1="132" x2="580" y2="140" stroke="#999" stroke-width="1.5"/>
+<line x1="580" y1="140" x2="200" y2="140" stroke="#999" stroke-width="1.5"/>
+<line x1="200" y1="140" x2="200" y2="148" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="30" y="148" width="340" height="70" rx="0" fill="#111" stroke="#333" stroke-width="1"/>
+<text x="200" y="170" text-anchor="middle" font-size="10" font-weight="500" fill="#eee">3. Set AMSI/ETW Bypass</text>
+<text x="200" y="188" text-anchor="middle" font-size="8.5" font-weight="300" fill="#aaa">LdrLoadDll loads amsi.dll,</text>
+<text x="200" y="202" text-anchor="middle" font-size="8.5" font-weight="300" fill="#aaa">HWBP on AmsiScanBuffer + EtwEventWrite</text>
+<line x1="370" y1="183" x2="410" y2="183" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="410" y="148" width="340" height="70" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="580" y="170" text-anchor="middle" font-size="10" font-weight="500" fill="#333">4. Create AppDomain</text>
+<text x="580" y="188" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">Random name (LCG seeded by pipe handle)</text>
+<text x="580" y="202" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">Isolated execution environment</text>
+<line x1="580" y1="218" x2="580" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="580" y1="226" x2="200" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="200" y1="226" x2="200" y2="234" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="30" y="234" width="340" height="70" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="200" y="256" text-anchor="middle" font-size="10" font-weight="500" fill="#333">5. Load .NET Assembly</text>
+<text x="200" y="274" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">PowershellRunner.h (4608 bytes, GPLv3)</text>
+<text x="200" y="288" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">Loaded via AppDomain.Load_3</text>
+<line x1="370" y1="269" x2="410" y2="269" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="410" y="234" width="340" height="70" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="580" y="256" text-anchor="middle" font-size="10" font-weight="500" fill="#333">6. Build PS Wrapper Script</text>
+<text x="580" y="274" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">Pipe writer + impersonation + command</text>
+<text x="580" y="288" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">Error handling in try/catch/finally</text>
+<line x1="580" y1="304" x2="580" y2="312" stroke="#999" stroke-width="1.5"/>
+<line x1="580" y1="312" x2="200" y2="312" stroke="#999" stroke-width="1.5"/>
+<line x1="200" y1="312" x2="200" y2="320" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="30" y="320" width="340" height="70" rx="0" fill="#c33" stroke="#a22" stroke-width="1"/>
+<text x="200" y="342" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">7. Invoke (Invoke_3)</text>
+<text x="200" y="360" text-anchor="middle" font-size="8.5" font-weight="300" fill="#fff">Runs PowerShell via .NET entry point</text>
+<text x="200" y="374" text-anchor="middle" font-size="8.5" font-weight="300" fill="#fff">BOF thread blocks until completion</text>
+<line x1="370" y1="355" x2="410" y2="355" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="410" y="320" width="340" height="70" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="580" y="342" text-anchor="middle" font-size="10" font-weight="500" fill="#333">8. Read Pipe + Cleanup</text>
+<text x="580" y="360" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">100ms delay, read pipe, BeaconOutput</text>
+<text x="580" y="374" text-anchor="middle" font-size="8.5" font-weight="300" fill="#555">Clear DR0/DR1, remove VEH, ScScrub</text>
+<text x="390" y="416" text-anchor="middle" font-size="9" font-weight="300" fill="#666">Red box = blocking call. The BOF thread waits until Invoke_3 returns, then reads the pipe output.</text>
+</g>
+</svg>

@@ -1,0 +1,30 @@
+<svg viewBox="0 0 860 226" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="226">
+<rect width="860" height="226" fill="#fff"/>
+<g transform="translate(40, 0)">
+<text x="390" y="32" text-anchor="middle" font-size="11" font-weight="500" fill="#111" letter-spacing="0.04em">.bss Section — CoffeeLdr Does Not Map It</text>
+<line x1="20" y1="40" x2="760" y2="40" stroke="#eee" stroke-width="1"/>
+<rect x="0" y="52" width="375" height="132" rx="0" fill="#fff" stroke="#c33" stroke-width="1.5"/>
+<rect x="0" y="52" width="375" height="26" fill="#c33"/>
+<text x="187" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#fff" letter-spacing="0.06em">PROBLEM</text>
+<text x="187" y="100" text-anchor="middle" font-size="9" font-weight="300" fill="#333">C compiler puts zero-init globals in .bss</text>
+<text x="187" y="116" text-anchor="middle" font-size="9" font-weight="300" fill="#333">static int x = 0; → goes to .bss</text>
+<text x="187" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#333">CoffeeLdr skips .bss when loading BOF</text>
+<text x="187" y="148" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Accessing x → unmapped memory</text>
+<text x="187" y="164" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Result: access violation, Demon exits</text>
+<rect x="405" y="52" width="375" height="132" rx="0" fill="#fff" stroke="#2a7" stroke-width="1.5"/>
+<rect x="405" y="52" width="375" height="26" fill="#2a7"/>
+<text x="592" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#fff" letter-spacing="0.06em">SOLUTION</text>
+<text x="592" y="100" text-anchor="middle" font-size="9" font-weight="300" fill="#333">__attribute__((section(".data"))) on every global</text>
+<text x="592" y="116" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Initialize with non-zero: (PVOID)1</text>
+<text x="592" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Check sentinel before dereferencing</text>
+<text x="592" y="148" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Verify: objdump -h | grep bss</text>
+<text x="592" y="164" text-anchor="middle" font-size="9" font-weight="300" fill="#333">Confirm: .bss Size = 00000000</text>
+<line x1="379" y1="118" x2="401" y2="118" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<text x="390" y="204" text-anchor="middle" font-size="8.5" font-weight="300" fill="#666">CoffeeLdr.c. This applies to all static/global variables, including pointers initialized to NULL.</text>
+<defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#999"/>
+</marker>
+</defs>
+</g>
+</svg>

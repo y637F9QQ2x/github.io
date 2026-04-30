@@ -1,0 +1,63 @@
+<svg viewBox="0 0 860 394" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="394">
+<rect width="860" height="394" fill="#fff"/>
+<g transform="translate(40,0)">
+<text x="390" y="24" text-anchor="middle" font-size="9" font-weight="500" fill="#888" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">EMBEDDED PROTOCOL STACK VULNERABILITIES — OVERVIEW</text>
+<text x="390" y="40" text-anchor="middle" font-size="10" font-weight="400" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">C/C++ implementations  ·  adjacent-network attack vectors  ·  open-source codebases</text>
+<line x1="0" y1="52" x2="780" y2="52" stroke="#ebebeb" stroke-width="1"/>
+<rect x="0" y="70" width="252" height="310" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="0" y="70" width="252" height="30" fill="#1a4e6e"/>
+<text x="126" y="89" text-anchor="middle" font-size="8.5" font-weight="600" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.07em">UPnP / SOAP</text>
+<text x="126" y="116" text-anchor="middle" font-size="13" font-weight="600" fill="#111" font-family="Helvetica Neue, Arial, sans-serif">miniupnpd</text>
+<text x="126" y="132" text-anchor="middle" font-size="8.5" font-weight="300" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">UPnP daemon for home routers</text>
+<line x1="8" y1="144" x2="244" y2="144" stroke="#e4e4e4" stroke-width="1"/>
+<text x="126" y="160" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">ATTACK VECTOR</text>
+<text x="126" y="174" text-anchor="middle" font-size="9.5" font-weight="400" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">Adjacent Network</text>
+<line x1="8" y1="186" x2="244" y2="186" stroke="#e4e4e4" stroke-width="1"/>
+<text x="126" y="202" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">CVE(S)</text>
+<text x="126" y="215" text-anchor="middle" font-size="9" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-5720</text>
+<line x1="8" y1="233" x2="244" y2="233" stroke="#e4e4e4" stroke-width="1"/>
+<text x="126" y="247" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">VULNERABILITY CLASS</text>
+<text x="126" y="261" text-anchor="middle" font-size="9" font-weight="400" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">CWE-191: Integer Underflow</text>
+<line x1="8" y1="273" x2="244" y2="273" stroke="#e4e4e4" stroke-width="1"/>
+<text x="126" y="289" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">SOAPAction parser computes a length</text>
+<text x="126" y="303" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">that wraps to ~SIZE_MAX,</text>
+<text x="126" y="317" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">driving memchr() far out of bounds.</text>
+<rect x="264" y="70" width="252" height="310" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="264" y="70" width="252" height="30" fill="#1a5c3a"/>
+<text x="390" y="89" text-anchor="middle" font-size="8.5" font-weight="600" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.07em">CoAP / OSCORE</text>
+<text x="390" y="116" text-anchor="middle" font-size="13" font-weight="600" fill="#111" font-family="Helvetica Neue, Arial, sans-serif">libcoap</text>
+<text x="390" y="132" text-anchor="middle" font-size="8.5" font-weight="300" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">CoAP protocol library (RFC 7252)</text>
+<line x1="272" y1="144" x2="508" y2="144" stroke="#e4e4e4" stroke-width="1"/>
+<text x="390" y="160" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">ATTACK VECTOR</text>
+<text x="390" y="174" text-anchor="middle" font-size="9.5" font-weight="400" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">Adjacent Network</text>
+<line x1="272" y1="186" x2="508" y2="186" stroke="#e4e4e4" stroke-width="1"/>
+<text x="390" y="202" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">CVE(S)</text>
+<text x="390" y="215" text-anchor="middle" font-size="9" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-29013</text>
+<line x1="272" y1="233" x2="508" y2="233" stroke="#e4e4e4" stroke-width="1"/>
+<text x="390" y="247" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">VULNERABILITY CLASS</text>
+<text x="390" y="261" text-anchor="middle" font-size="9" font-weight="400" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">CWE-125: Out-of-bounds Read</text>
+<line x1="272" y1="273" x2="508" y2="273" stroke="#e4e4e4" stroke-width="1"/>
+<text x="390" y="289" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">assert() used as sole bounds check —</text>
+<text x="390" y="303" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">silently removed in release builds</text>
+<text x="390" y="317" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">compiled with NDEBUG.</text>
+<rect x="528" y="70" width="252" height="310" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+<rect x="528" y="70" width="252" height="30" fill="#4a2468"/>
+<text x="654" y="89" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.07em">Bluetooth Classic / AVRCP</text>
+<text x="654" y="116" text-anchor="middle" font-size="13" font-weight="600" fill="#111" font-family="Helvetica Neue, Arial, sans-serif">BTstack</text>
+<text x="654" y="132" text-anchor="middle" font-size="8.5" font-weight="300" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">Bluetooth stack for embedded devices</text>
+<line x1="536" y1="144" x2="772" y2="144" stroke="#e4e4e4" stroke-width="1"/>
+<text x="654" y="160" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">ATTACK VECTOR</text>
+<text x="654" y="174" text-anchor="middle" font-size="9.5" font-weight="400" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">Adjacent (Paired Bluetooth)</text>
+<line x1="536" y1="186" x2="772" y2="186" stroke="#e4e4e4" stroke-width="1"/>
+<text x="654" y="202" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">CVE(S)</text>
+<text x="654" y="215" text-anchor="middle" font-size="9" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-28526</text>
+<text x="654" y="229" text-anchor="middle" font-size="9" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-28527</text>
+<text x="654" y="243" text-anchor="middle" font-size="9" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">CVE-2026-28528</text>
+<line x1="536" y1="261" x2="772" y2="261" stroke="#e4e4e4" stroke-width="1"/>
+<text x="654" y="275" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">VULNERABILITY CLASS</text>
+<text x="654" y="289" text-anchor="middle" font-size="9" font-weight="400" fill="#444" font-family="Helvetica Neue, Arial, sans-serif">CWE-125: Out-of-bounds Read</text>
+<line x1="536" y1="301" x2="772" y2="301" stroke="#e4e4e4" stroke-width="1"/>
+<text x="654" y="317" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">AVRCP handlers trust attacker-supplied</text>
+<text x="654" y="331" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">count fields without verifying</text>
+<text x="654" y="345" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="Helvetica Neue, Arial, sans-serif">sufficient packet bytes remain.</text>
+</g></svg>

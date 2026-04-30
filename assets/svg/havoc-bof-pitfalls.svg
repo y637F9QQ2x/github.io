@@ -1,0 +1,59 @@
+<svg viewBox="0 0 860 514" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="514">
+<rect width="860" height="514" fill="#fff"/>
+<g transform="translate(40, 0)">
+<text x="390" y="36" text-anchor="middle" font-size="12" font-weight="500" fill="#111" letter-spacing="0.05em">HAVOC C2 BOF DEVELOPMENT  —  PITFALLS AND FIXES</text>
+<line x1="20" y1="46" x2="760" y2="46" stroke="#eee" stroke-width="1"/>
+<rect x="0" y="62" width="780" height="408" rx="0" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<rect x="0" y="62" width="780" height="30" fill="#111"/>
+<text x="120" y="82" text-anchor="middle" font-size="9" font-weight="500" fill="#ccc" letter-spacing="0.06em">PITFALL</text>
+<text x="370" y="82" text-anchor="middle" font-size="9" font-weight="500" fill="#ccc" letter-spacing="0.06em">SYMPTOM</text>
+<text x="640" y="82" text-anchor="middle" font-size="9" font-weight="500" fill="#ccc" letter-spacing="0.06em">FIX</text>
+<line x1="240" y1="62" x2="240" y2="470" stroke="#ddd" stroke-width="1"/>
+<line x1="500" y1="62" x2="500" y2="470" stroke="#ddd" stroke-width="1"/>
+<rect x="1" y="92" width="778" height="42" fill="#fafafa"/>
+<text x="120" y="117" text-anchor="middle" font-size="10" font-weight="500" fill="#111">BeaconFormatAlloc bug</text>
+<text x="370" y="117" text-anchor="middle" font-size="9" font-weight="300" fill="#555">LocalAlloc args reversed: 1 byte alloc</text>
+<text x="640" y="117" text-anchor="middle" font-size="9" font-weight="400" fill="#333">Use calloc + vsnprintf + BeaconOutput</text>
+<rect x="1" y="134" width="778" height="42" fill="#fff"/>
+<line x1="0" y1="134" x2="780" y2="134" stroke="#eee" stroke-width="1"/>
+<text x="120" y="159" text-anchor="middle" font-size="10" font-weight="500" fill="#111">.bss section not mapped</text>
+<text x="370" y="159" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Static/global = 0 causes crash</text>
+<text x="640" y="159" text-anchor="middle" font-size="9" font-weight="400" fill="#333">__attribute__((section(".data")))</text>
+<rect x="1" y="176" width="778" height="42" fill="#fafafa"/>
+<line x1="0" y1="176" x2="780" y2="176" stroke="#eee" stroke-width="1"/>
+<text x="120" y="201" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Pipe buffer deadlock</text>
+<text x="370" y="201" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Default 4KB fills, child + BOF block</text>
+<text x="640" y="201" text-anchor="middle" font-size="9" font-weight="400" fill="#333">CreatePipe with 1MB buffer size</text>
+<rect x="1" y="218" width="778" height="42" fill="#fff"/>
+<line x1="0" y1="218" x2="780" y2="218" stroke="#eee" stroke-width="1"/>
+<text x="120" y="243" text-anchor="middle" font-size="10" font-weight="500" fill="#111">OEM codepage mojibake</text>
+<text x="370" y="243" text-anchor="middle" font-size="9" font-weight="300" fill="#555">ipconfig output garbled in console</text>
+<text x="640" y="243" text-anchor="middle" font-size="9" font-weight="400" fill="#333">OEM → UTF-16 → UTF-8 conversion</text>
+<rect x="1" y="260" width="778" height="42" fill="#fafafa"/>
+<line x1="0" y1="260" x2="780" y2="260" stroke="#eee" stroke-width="1"/>
+<text x="120" y="285" text-anchor="middle" font-size="10" font-weight="500" fill="#111">COM vtable slot miscount</text>
+<text x="370" y="285" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Wrong slot → call wrong method → crash</text>
+<text x="640" y="285" text-anchor="middle" font-size="9" font-weight="400" fill="#333">Count IUnknown+IDispatch+all base slots</text>
+<rect x="1" y="302" width="778" height="42" fill="#fff"/>
+<line x1="0" y1="302" x2="780" y2="302" stroke="#eee" stroke-width="1"/>
+<text x="120" y="327" text-anchor="middle" font-size="10" font-weight="500" fill="#111">RegisterCommand 7 args</text>
+<text x="370" y="327" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Docs say 8 args, 5th is str (wrong)</text>
+<text x="640" y="327" text-anchor="middle" font-size="9" font-weight="400" fill="#333">7 args, 5th arg is int (0)</text>
+<rect x="1" y="344" width="778" height="42" fill="#fafafa"/>
+<line x1="0" y1="344" x2="780" y2="344" stroke="#eee" stroke-width="1"/>
+<text x="120" y="369" text-anchor="middle" font-size="10" font-weight="500" fill="#111">__file__ undefined</text>
+<text x="370" y="369" text-anchor="middle" font-size="9" font-weight="300" fill="#555">NameError crash in embedded Python</text>
+<text x="640" y="369" text-anchor="middle" font-size="9" font-weight="400" fill="#333">Use config variable for BOF path</text>
+<rect x="1" y="386" width="778" height="42" fill="#fff"/>
+<line x1="0" y1="386" x2="780" y2="386" stroke="#eee" stroke-width="1"/>
+<text x="120" y="411" text-anchor="middle" font-size="10" font-weight="500" fill="#111">GC eats callbacks</text>
+<text x="370" y="411" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Segfault on button click in GUI</text>
+<text x="640" y="411" text-anchor="middle" font-size="9" font-weight="400" fill="#333">Keep references in _prevent_gc list</text>
+<rect x="1" y="428" width="778" height="42" fill="#fafafa"/>
+<line x1="0" y1="428" x2="780" y2="428" stroke="#eee" stroke-width="1"/>
+<text x="120" y="453" text-anchor="middle" font-size="10" font-weight="500" fill="#111">ConsoleWrite last-only</text>
+<text x="370" y="453" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Multiple calls, only last one shows</text>
+<text x="640" y="453" text-anchor="middle" font-size="9" font-weight="400" fill="#333">Combine all text in one call</text>
+<text x="390" y="492" text-anchor="middle" font-size="9" font-weight="300" fill="#666">Behaviors verified by reading Havoc source code (ObjectApi.c, CoffeeLdr.c, PyWidgetClass.cc).</text>
+</g>
+</svg>

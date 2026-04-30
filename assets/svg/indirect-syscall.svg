@@ -1,0 +1,69 @@
+<svg viewBox="0 0 860 460" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="460">
+<rect width="860" height="460" fill="#fff"/>
+<g transform="translate(40, 0)">
+<defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#555"/>
+</marker>
+<marker id="arrowD" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#111"/>
+</marker>
+</defs>
+<text x="390" y="36" text-anchor="middle" font-size="12" font-weight="500" fill="#111" letter-spacing="0.05em">NFEXEC  —  INDIRECT SYSCALL INFRASTRUCTURE</text>
+<line x1="20" y1="46" x2="760" y2="46" stroke="#eee" stroke-width="1"/>
+<text x="390" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#666" letter-spacing="0.07em">FUNCTION RESOLUTION CHAIN (ZERO DFR IMPORTS)</text>
+<rect x="19" y="86" width="172" height="54" rx="0" fill="#f5f5f5"/>
+<text x="105" y="105" text-anchor="middle" font-size="11" font-weight="500" fill="#111">PEB Walk</text>
+<text x="105" y="119" text-anchor="middle" font-size="9" font-weight="300" fill="#555">GS:0x60 → Ldr</text>
+<text x="105" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#555">→ ntdll base</text>
+<line x1="193" y1="113" x2="207" y2="113" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="209" y="86" width="172" height="54" rx="0" fill="#f5f5f5"/>
+<text x="295" y="105" text-anchor="middle" font-size="11" font-weight="500" fill="#111">FNV-1a Hash</text>
+<text x="295" y="119" text-anchor="middle" font-size="9" font-weight="300" fill="#555">PE export table</text>
+<text x="295" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#555">resolve by hash</text>
+<line x1="383" y1="113" x2="397" y2="113" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="399" y="86" width="172" height="54" rx="0" fill="#f5f5f5"/>
+<text x="485" y="105" text-anchor="middle" font-size="11" font-weight="500" fill="#111">Halo’s Gate</text>
+<text x="485" y="119" text-anchor="middle" font-size="9" font-weight="300" fill="#555">Extract SSN</text>
+<text x="485" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#555">walk neighbors if hooked</text>
+<line x1="573" y1="113" x2="587" y2="113" stroke="#999" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<rect x="589" y="86" width="172" height="54" rx="0" fill="#111"/>
+<text x="675" y="105" text-anchor="middle" font-size="11" font-weight="500" fill="#fff">syscall;ret Gadget</text>
+<text x="675" y="119" text-anchor="middle" font-size="9" font-weight="300" fill="#aaa">0F 05 C3 in ntdll</text>
+<text x="675" y="132" text-anchor="middle" font-size="9" font-weight="300" fill="#aaa">indirect jump target</text>
+<text x="390" y="178" text-anchor="middle" font-size="9" font-weight="500" fill="#666" letter-spacing="0.07em">RETURN ADDRESS SPOOFING  —  STACK TRANSFORMATION</text>
+<text x="190" y="194" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Without Spoofing</text>
+<text x="590" y="194" text-anchor="middle" font-size="10" font-weight="500" fill="#111">With Spoofing</text>
+<rect x="90" y="198" width="200" height="30" rx="0" fill="#fce4e4" stroke="#ddd" stroke-width="1"/>
+<text x="98" y="217" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP]</text>
+<text x="210" y="217" text-anchor="middle" font-size="9.5" font-weight="400" fill="#c33">BOF caller return</text>
+<rect x="90" y="228" width="200" height="30" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="98" y="247" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP+8]</text>
+<text x="210" y="247" text-anchor="middle" font-size="9.5" font-weight="400" fill="#555">shadow space</text>
+<rect x="90" y="258" width="200" height="30" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="98" y="277" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP+10]</text>
+<text x="210" y="277" text-anchor="middle" font-size="9.5" font-weight="400" fill="#555">shadow space</text>
+<rect x="90" y="288" width="200" height="30" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="98" y="307" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP+18]</text>
+<text x="210" y="307" text-anchor="middle" font-size="9.5" font-weight="400" fill="#555">shadow space</text>
+<text x="190" y="328" text-anchor="middle" font-size="9" font-weight="400" fill="#c33">EDR sees: BOF memory address</text>
+<rect x="490" y="198" width="200" height="30" rx="0" fill="#e4f5e4" stroke="#ddd" stroke-width="1"/>
+<text x="498" y="217" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP]</text>
+<text x="610" y="217" text-anchor="middle" font-size="9.5" font-weight="400" fill="#2a7">ntdll ret gadget (C3)</text>
+<rect x="490" y="228" width="200" height="30" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="498" y="247" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP+8]</text>
+<text x="610" y="247" text-anchor="middle" font-size="9.5" font-weight="400" fill="#555">BOF caller return</text>
+<rect x="490" y="258" width="200" height="30" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="498" y="277" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP+10]</text>
+<text x="610" y="277" text-anchor="middle" font-size="9.5" font-weight="400" fill="#555">shadow space</text>
+<rect x="490" y="288" width="200" height="30" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="498" y="307" text-anchor="start" font-size="9" font-weight="500" fill="#555">[RSP+18]</text>
+<text x="610" y="307" text-anchor="middle" font-size="9.5" font-weight="400" fill="#555">shadow space</text>
+<text x="590" y="328" text-anchor="middle" font-size="9" font-weight="400" fill="#2a7">EDR sees: ntdll address (legitimate)</text>
+<line x1="296" y1="258" x2="484" y2="258" stroke="#111" stroke-width="1.5" marker-end="url(#arrowD)"/>
+<text x="390" y="252" text-anchor="middle" font-size="8.5" font-weight="400" fill="#555">sub rsp, 8</text>
+<text x="390" y="378" text-anchor="middle" font-size="10" font-weight="400" fill="#555">Return chain: syscall;ret → pops ntdll C3 gadget → ret → pops real caller address → back to BOF</text>
+<text x="390" y="396" text-anchor="middle" font-size="9" font-weight="300" fill="#666">Limitation: sub rsp,8 shifts stack args. Safe for functions with 4 or fewer arguments only.</text>
+<text x="390" y="414" text-anchor="middle" font-size="9" font-weight="300" fill="#666">NOFILTER uses Havoc NtApi[] auto indirect syscalls (no return address spoofing needed).</text>
+</g>
+</svg>
