@@ -1,0 +1,13 @@
+<svg viewBox="102 0 593 234" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="593" height="234"><rect x="102" width="593" height="234" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">ConsoleWrite — ONLY THE LAST CALL IS DISPLAYED</text>
+<rect x="70" y="60" width="500" height="36" rx="0" fill="#f8f8f8" stroke="#ccc" stroke-width="1.2"/>
+<text x="80" y="83" text-anchor="start" font-size="12" font-weight="500" fill="#aaa" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ConsoleWrite("Step 1 result")</text>
+<line x1="80" y1="78" x2="288.79999999999995" y2="78" stroke="#c33" stroke-width="2"/>
+<text x="590" y="83" text-anchor="start" font-size="11" font-weight="600" fill="#c33">discarded</text>
+<rect x="70" y="104" width="500" height="36" rx="0" fill="#f8f8f8" stroke="#ccc" stroke-width="1.2"/>
+<text x="80" y="127" text-anchor="start" font-size="12" font-weight="500" fill="#aaa" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ConsoleWrite("Step 2 result")</text>
+<line x1="80" y1="122" x2="288.79999999999995" y2="122" stroke="#c33" stroke-width="2"/>
+<text x="590" y="127" text-anchor="start" font-size="11" font-weight="600" fill="#c33">discarded</text>
+<rect x="70" y="148" width="500" height="36" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.2"/>
+<text x="80" y="171" text-anchor="start" font-size="12" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ConsoleWrite("Step 3 result")</text>
+<text x="590" y="171" text-anchor="start" font-size="11" font-weight="700" fill="#2a7">displayed</text>
+<text x="390" y="212" text-anchor="middle" font-size="11" font-weight="400" fill="#555">Fix: combine all output into a single call, or use BeaconOutput echo technique.</text></g></svg>

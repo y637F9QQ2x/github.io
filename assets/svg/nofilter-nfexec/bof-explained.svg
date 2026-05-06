@@ -1,0 +1,95 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="420">
+<rect width="860" height="420" fill="#fff"/>
+<g transform="translate(40,0)">
+<defs>
+<marker id="aG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L8,3.5 z" fill="#999"/></marker>
+<marker id="aR" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L8,3.5 z" fill="#c33"/></marker>
+<marker id="aW" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L8,3.5 z" fill="#fff"/></marker>
+<marker id="aGr" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L8,3.5 z" fill="#2a7"/></marker>
+<marker id="aBl" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L8,3.5 z" fill="#26c"/></marker>
+</defs>
+<text x="390" y="36" text-anchor="middle" font-size="12" font-weight="500" fill="#111">BOF IN-MEMORY EXECUTION — INSIDE THE DEMON PROCESS</text>
+<line x1="20" y1="46" x2="760" y2="46" stroke="#eee" stroke-width="1"/>
+<text x="180" y="58" text-anchor="middle" font-size="8" font-weight="500" fill="#666">DEMON PROCESS MEMORY</text>
+<text x="635" y="58" text-anchor="middle" font-size="8" font-weight="500" fill="#666">WINDOWS OS</text>
+<rect x="40" y="66" width="280" height="270" rx="0" fill="#fff" stroke="#111" stroke-width="2"/>
+<rect x="41" y="66" width="278" height="38" rx="0" fill="#eee"/>
+<text x="180" y="82" text-anchor="middle" font-size="9.5" font-weight="500" fill="#333">Loaded DLLs</text>
+<text x="180" y="96" text-anchor="middle" font-size="7.5" font-weight="300" fill="#555">ntdll kernel32 msvcrt</text>
+<rect x="41" y="106" width="278" height="36" rx="0" fill="#f5f5f5"/>
+<line x1="40" y1="106" x2="320" y2="106" stroke="#ccc" stroke-width="1"/>
+<text x="180" y="121" text-anchor="middle" font-size="9.5" font-weight="500" fill="#333">Demon .text</text>
+<text x="180" y="135" text-anchor="middle" font-size="7.5" font-weight="300" fill="#555">CoffeeLdr lives here</text>
+<rect x="41" y="144" width="278" height="36" rx="0" fill="#f5f5f5"/>
+<line x1="40" y1="144" x2="320" y2="144" stroke="#ccc" stroke-width="1"/>
+<text x="180" y="159" text-anchor="middle" font-size="9.5" font-weight="500" fill="#333">Demon .data</text>
+<text x="180" y="173" text-anchor="middle" font-size="7.5" font-weight="300" fill="#555">NtApi[34] hash table</text>
+<rect x="41" y="182" width="278" height="34" rx="0" fill="#f5f5f5"/>
+<line x1="40" y1="182" x2="320" y2="182" stroke="#ccc" stroke-width="1"/>
+<text x="180" y="196" text-anchor="middle" font-size="9.5" font-weight="500" fill="#333">Heap</text>
+<text x="180" y="210" text-anchor="middle" font-size="7.5" font-weight="300" fill="#555">BeaconOutput buffer</text>
+<rect x="41" y="218" width="278" height="46" rx="0" fill="#111"/>
+<line x1="40" y1="218" x2="320" y2="218" stroke="#ccc" stroke-width="1"/>
+<text x="180" y="238" text-anchor="middle" font-size="9.5" font-weight="500" fill="#eee">BOF .text</text>
+<text x="180" y="252" text-anchor="middle" font-size="7.5" font-weight="300" fill="#aaa">go() + BOF functions</text>
+<rect x="41" y="266" width="278" height="30" rx="0" fill="#222"/>
+<line x1="40" y1="266" x2="320" y2="266" stroke="#ccc" stroke-width="1"/>
+<text x="180" y="278" text-anchor="middle" font-size="9.5" font-weight="500" fill="#eee">BOF .data</text>
+<text x="180" y="292" text-anchor="middle" font-size="7.5" font-weight="300" fill="#888">Globals (.data attr)</text>
+<rect x="41" y="298" width="278" height="38" rx="0" fill="#f5f5f5"/>
+<line x1="40" y1="298" x2="320" y2="298" stroke="#ccc" stroke-width="1"/>
+<text x="180" y="314" text-anchor="middle" font-size="9.5" font-weight="500" fill="#333">Thread Stack</text>
+<text x="180" y="328" text-anchor="middle" font-size="7.5" font-weight="300" fill="#555">RSP, return addrs</text>
+<rect x="264" y="220" width="54" height="14" rx="0" fill="#c33"/>
+<text x="291" y="230" text-anchor="middle" font-size="7" font-weight="500" fill="#fff">TEMPORARY</text>
+<text x="32" y="76" text-anchor="end" font-size="7" font-weight="300" fill="#999">High</text>
+<text x="32" y="330" text-anchor="end" font-size="7" font-weight="300" fill="#999">Low</text>
+<line x1="28" y1="82" x2="28" y2="322" stroke="#ccc" stroke-width="1" marker-end="url(#aG)"/>
+<line x1="56" y1="281" x2="56" y2="241" stroke="#fff" stroke-width="1" marker-end="url(#aW)"/>
+<text x="66" y="262" text-anchor="start" font-size="7" font-weight="500" fill="#fff">reads globals</text>
+<line x1="300" y1="298" x2="300" y2="264" stroke="#c33" stroke-width="1.5" marker-end="url(#aW)"/>
+<text x="290" y="285" text-anchor="end" font-size="8" font-weight="500" fill="#c33">CALL go()</text>
+<text x="306" y="285" text-anchor="start" font-size="8" font-weight="700" fill="#c33">❻</text>
+<rect x="530" y="66" width="210" height="44" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="635" y="84" text-anchor="middle" font-size="9.5" font-weight="500" fill="#333">DLL Export Tables</text>
+<text x="635" y="100" text-anchor="middle" font-size="7.5" font-weight="300" fill="#555">LIBRARY$Function</text>
+<rect x="530" y="204" width="210" height="44" rx="0" fill="#111" stroke="#333" stroke-width="1"/>
+<text x="635" y="222" text-anchor="middle" font-size="9.5" font-weight="500" fill="#eee">NtApi[] Syscall Stub</text>
+<text x="635" y="238" text-anchor="middle" font-size="7.5" font-weight="300" fill="#aaa">mov r10,rcx; mov eax,SSN</text>
+<rect x="530" y="268" width="210" height="36" rx="0" fill="#111" stroke="#333" stroke-width="1"/>
+<text x="635" y="282" text-anchor="middle" font-size="9.5" font-weight="500" fill="#eee">Kernel (ring 0)</text>
+<text x="635" y="296" text-anchor="middle" font-size="7" font-weight="300" fill="#aaa">NTSTATUS via RAX</text>
+<rect x="530" y="326" width="210" height="36" rx="0" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+<text x="635" y="340" text-anchor="middle" font-size="9.5" font-weight="500" fill="#333">C2 Server</text>
+<text x="635" y="354" text-anchor="middle" font-size="7.5" font-weight="300" fill="#555">Receives BeaconOutput</text>
+<line x1="627" y1="248" x2="627" y2="268" stroke="#c33" stroke-width="1.5" marker-end="url(#aR)"/>
+<line x1="643" y1="268" x2="643" y2="248" stroke="#999" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#aG)"/>
+<line x1="530" y1="338" x2="350" y2="338" stroke="#2a7" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="350" y1="338" x2="350" y2="124" stroke="#2a7" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="350" y1="124" x2="320" y2="124" stroke="#2a7" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#aGr)"/>
+<text x="356" y="332" text-anchor="start" font-size="7.5" font-weight="500" fill="#2a7">❶ .o file + args</text>
+<line x1="50" y1="142" x2="50" y2="218" stroke="#2a7" stroke-width="1.5" marker-end="url(#aGr)"/>
+<text x="58" y="160" text-anchor="start" font-size="7" font-weight="400" fill="#2a7">❷❸ parse + map</text>
+<line x1="320" y1="85" x2="530" y2="88" stroke="#2a7" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#aGr)"/>
+<text x="356" y="79" text-anchor="start" font-size="7.5" font-weight="400" fill="#2a7">❹ DFR resolve</text>
+<text x="58" y="230" text-anchor="start" font-size="7" font-weight="400" fill="#2a7">❺ reloc</text>
+<line x1="320" y1="241" x2="530" y2="226" stroke="#c33" stroke-width="1.5" marker-end="url(#aR)"/>
+<text x="425" y="229" text-anchor="middle" font-size="7.5" font-weight="500" fill="#c33">❼ NTDLL$NtXxx</text>
+<line x1="530" y1="236" x2="320" y2="251" stroke="#999" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#aG)"/>
+<line x1="320" y1="162" x2="530" y2="214" stroke="#999" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#aG)"/>
+<text x="425" y="176" text-anchor="middle" font-size="7" font-weight="300" fill="#666">NtApi[34] lookup</text>
+<line x1="320" y1="199" x2="490" y2="199" stroke="#26c" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="490" y1="199" x2="490" y2="344" stroke="#26c" stroke-width="1.5" stroke-dasharray="6,3"/>
+<line x1="490" y1="344" x2="530" y2="344" stroke="#26c" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#aBl)"/>
+<text x="496" y="193" text-anchor="start" font-size="7.5" font-weight="500" fill="#26c">❽ BeaconOutput</text>
+<line x1="20" y1="372" x2="760" y2="372" stroke="#eee" stroke-width="1"/>
+<line x1="40" y1="386" x2="70" y2="386" stroke="#2a7" stroke-width="2"/>
+<text x="76" y="390" text-anchor="start" font-size="8" font-weight="400" fill="#2a7">Input</text>
+<line x1="160" y1="386" x2="190" y2="386" stroke="#c33" stroke-width="2"/>
+<text x="196" y="390" text-anchor="start" font-size="8" font-weight="400" fill="#c33">Execution</text>
+<line x1="310" y1="386" x2="340" y2="386" stroke="#26c" stroke-width="2"/>
+<text x="346" y="390" text-anchor="start" font-size="8" font-weight="400" fill="#26c">Output</text>
+<line x1="440" y1="386" x2="470" y2="386" stroke="#999" stroke-width="1" stroke-dasharray="4,2"/>
+<text x="476" y="390" text-anchor="start" font-size="8" font-weight="400" fill="#999">Return</text>
+<text x="390" y="406" text-anchor="middle" font-size="9" font-weight="300" fill="#555">BOF memory freed after go() returns. No new process created.</text>
+</g></svg>

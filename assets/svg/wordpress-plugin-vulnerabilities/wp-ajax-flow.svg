@@ -1,0 +1,42 @@
+<svg viewBox="0 0 820 376" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="820" height="376">
+<rect width="820" height="376" fill="#fff"/>
+<g transform="translate(20,0)">
+<text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">THE ONE MISSING LINE</text>
+<rect x="20" y="44" width="740" height="1" fill="#eee" stroke="none"/>
+<rect x="0" y="56" width="370" height="260" rx="0" fill="#282a36" stroke="#c33" stroke-width="2"/>
+<rect x="0" y="56" width="370" height="30" rx="0" fill="#c33" stroke="none"/>
+<text x="185" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">VULNERABLE</text>
+<text x="14" y="104" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">function plugin_delete_record() {</text>
+<text x="14" y="148" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  check_ajax_referer(</text>
+<text x="14" y="170" text-anchor="start" font-size="10" font-weight="400" fill="#a9dc76" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">    'delete_record_nonce', 'nonce'</text>
+<text x="14" y="192" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  );</text>
+<rect x="2" y="220" width="366" height="22" rx="0" fill="#c33" fill-opacity="0.15" stroke="none"/>
+<rect x="0" y="220" width="3" height="22" rx="0" fill="#c33" stroke="none"/>
+<text x="14" y="280" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  $id = intval( $_POST['id'] );</text>
+<text x="14" y="302" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  $wpdb->delete( ... , ['id'=>$id] );</text>
+<text x="14" y="324" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  wp_send_json_success();</text>
+<text x="14" y="346" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">}</text>
+<rect x="410" y="56" width="370" height="260" rx="0" fill="#282a36" stroke="#2a7" stroke-width="2"/>
+<rect x="410" y="56" width="370" height="30" rx="0" fill="#2a7" stroke="none"/>
+<text x="595" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">FIXED</text>
+<text x="424" y="104" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">function plugin_delete_record() {</text>
+<text x="424" y="148" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  check_ajax_referer(</text>
+<text x="424" y="170" text-anchor="start" font-size="10" font-weight="400" fill="#a9dc76" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">    'delete_record_nonce', 'nonce'</text>
+<text x="424" y="192" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  );</text>
+<rect x="412" y="220" width="366" height="22" rx="0" fill="#2a7" fill-opacity="0.15" stroke="none"/>
+<rect x="410" y="220" width="3" height="22" rx="0" fill="#2a7" stroke="none"/>
+<text x="424" y="236" text-anchor="start" font-size="10" font-weight="600" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  if (!current_user_can('manage_options'))</text>
+<rect x="412" y="242" width="366" height="22" rx="0" fill="#2a7" fill-opacity="0.15" stroke="none"/>
+<rect x="410" y="242" width="3" height="22" rx="0" fill="#2a7" stroke="none"/>
+<text x="424" y="258" text-anchor="start" font-size="10" font-weight="600" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">    wp_send_json_error('Unauthorized');</text>
+<text x="424" y="280" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  $id = intval( $_POST['id'] );</text>
+<text x="424" y="302" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  $wpdb->delete( ... , ['id'=>$id] );</text>
+<text x="424" y="324" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  wp_send_json_success();</text>
+<text x="424" y="346" text-anchor="start" font-size="10" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">}</text>
+<text x="360" y="230" text-anchor="end" font-size="9" font-weight="600" fill="#c33">No auth check</text>
+<text x="360" y="242" text-anchor="end" font-size="9" font-weight="600" fill="#c33">anywhere</text>
+<text x="770" y="230" text-anchor="end" font-size="9" font-weight="600" fill="#2a7">This is all</text>
+<text x="770" y="242" text-anchor="end" font-size="9" font-weight="600" fill="#2a7">it takes</text>
+<text x="390" y="336" text-anchor="middle" font-size="12" font-weight="600" fill="#c33">Both handlers compile. Both pass nonce verification. Only the right one checks permission.</text>
+<text x="390" y="354" text-anchor="middle" font-size="10.5" font-weight="400" fill="#666">A Subscriber can call the left handler and delete any record.</text>
+</g></svg>

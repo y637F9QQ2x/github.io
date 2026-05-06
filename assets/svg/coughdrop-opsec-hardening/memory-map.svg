@@ -1,0 +1,64 @@
+<svg viewBox="0 0 820 478" xmlns="http://www.w3.org/2000/svg" width="820" height="478">
+<rect width="820" height="478" fill="#fff"/>
+<g transform="translate(20,0)">
+<text x="390" y="28" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#222">PROCESS VIRTUAL ADDRESS SPACE DURING BOF EXECUTION</text>
+<text x="390" y="48" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10.5" fill="#888">High addresses at top. Shifted mapping and consolidated block must be within &#xB1;2 GB for REL32.</text>
+<text x="112" y="72" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#888" font-weight="600">VIRTUAL ADDRESS</text>
+<text x="387" y="72" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#888" font-weight="600">MEMORY REGION</text>
+<text x="625" y="72" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#888" font-weight="600">PERM</text>
+<text x="57" y="113" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" fill="#666">0x7FFE...F0000</text>
+<rect x="187" y="86" width="400" height="46" fill="#eee" stroke="#ccc" rx="0"/>
+<rect x="187" y="86" width="180" height="46" fill="#555" rx="0"/>
+<text x="277" y="105" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#fff">ntdll.dll</text>
+<text x="277" y="119" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.75)">.text</text>
+<text x="379" y="113" text-anchor="start" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#555">Syscall stubs, ret gadgets</text>
+<text x="625" y="113" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" fill="#2a7">RX</text>
+<text x="57" y="165" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" fill="#666">0x7FFE...60000</text>
+<rect x="187" y="138" width="400" height="46" fill="#eee" stroke="#ccc" rx="0"/>
+<rect x="187" y="138" width="180" height="46" fill="#555" rx="0"/>
+<text x="277" y="157" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#fff">kernel32.dll</text>
+<text x="277" y="171" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.75)">.text</text>
+<text x="379" y="165" text-anchor="start" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#555">Win32 wrappers</text>
+<text x="625" y="165" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" fill="#2a7">RX</text>
+<text x="57" y="220" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" fill="#666">0x7FFE...F0000</text>
+<rect x="187" y="190" width="400" height="52" fill="#e8f5e9" stroke="#ccc" rx="0"/>
+<rect x="187" y="190" width="180" height="52" fill="#2a7" rx="0"/>
+<text x="277" y="212" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#fff">cabinet.dll (clean)</text>
+<text x="277" y="226" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.75)">Loaded by LdrLoadDll</text>
+<text x="379" y="220" text-anchor="start" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#555">Never written to</text>
+<text x="625" y="220" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" fill="#2a7">RX</text>
+<text x="57" y="278" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" fill="#666">0x7FFE...E0000</text>
+<rect x="187" y="248" width="400" height="52" fill="#fce4e4" stroke="#ccc" rx="0"/>
+<rect x="187" y="248" width="180" height="52" fill="#c33" rx="0"/>
+<text x="277" y="270" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#fff">cabinet.dll (shifted)</text>
+<text x="277" y="284" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.75)">.text: BOF code here</text>
+<text x="379" y="278" text-anchor="start" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#555">Second SEC_IMAGE view</text>
+<text x="625" y="278" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" fill="#c33">RW&#x2192;RX</text>
+<text x="57" y="336" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" fill="#666">0x7FFE...D0000</text>
+<rect x="187" y="306" width="400" height="52" fill="#e3f2fd" stroke="#ccc" rx="0"/>
+<rect x="187" y="306" width="180" height="52" fill="#36c" rx="0"/>
+<text x="277" y="328" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#fff">Consolidated Block</text>
+<text x="277" y="342" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.75)">GOT + .data + .rdata</text>
+<text x="379" y="336" text-anchor="start" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#555">Single alloc, near shifted</text>
+<text x="625" y="336" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" fill="#36c">RW/R</text>
+<text x="57" y="388" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" fill="#666">0x01A0...00000</text>
+<rect x="187" y="364" width="400" height="40" fill="#f5f5f5" stroke="#ccc" rx="0"/>
+<rect x="187" y="364" width="180" height="40" fill="#888" rx="0"/>
+<text x="277" y="380" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#fff">Heap</text>
+<text x="277" y="394" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.75)">BeaconOutput buffer</text>
+<text x="379" y="388" text-anchor="start" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#555">Process default heap</text>
+<text x="625" y="388" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" fill="#36c">RW</text>
+<text x="57" y="434" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" fill="#666">0x000C...F0000</text>
+<rect x="187" y="410" width="400" height="40" fill="#f5f5f5" stroke="#ccc" rx="0"/>
+<rect x="187" y="410" width="180" height="40" fill="#888" rx="0"/>
+<text x="277" y="426" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#fff">Thread Stack</text>
+<text x="277" y="440" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.75)">RSP, return addresses</text>
+<text x="379" y="434" text-anchor="start" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#555">Spoofed ret addr &#x2192; ntdll</text>
+<text x="625" y="434" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" fill="#36c">RW</text>
+<line x1="663" y1="252" x2="663" y2="354" stroke="#c33" stroke-width="1.5"/>
+<line x1="657" y1="252" x2="664" y2="252" stroke="#c33" stroke-width="1.5"/>
+<line x1="657" y1="354" x2="664" y2="354" stroke="#c33" stroke-width="1.5"/>
+<rect x="669" y="293" width="50" height="20" fill="#fff" fill-opacity="0.95" stroke="none"/>
+<text x="673" y="307" text-anchor="start" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="600" fill="#c33">&#xB1;2 GB</text>
+</g>
+</svg>

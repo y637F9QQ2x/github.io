@@ -1,0 +1,29 @@
+# Kazuma Matsumoto
+
+> Security researcher specializing in offensive security, vulnerability research, and AI-assisted code analysis.
+
+This is the personal blog of Kazuma Matsumoto (松本一真), a security researcher at GMO Cybersecurity by Ierae, Inc. The blog covers vulnerability research, AI-assisted security analysis, and offensive security.
+
+## Author
+
+- Name: Kazuma Matsumoto (松本一真)
+- Title: Security Researcher
+- Employer: GMO Cybersecurity by Ierae, Inc.
+- Website: https://y637f9qq2x.com
+- GitHub: https://github.com/y637F9QQ2x
+- LinkedIn: https://www.linkedin.com/in/y637f9qq2x
+
+## CVEs Discovered
+
+- CVE-2026-20943: Microsoft Office — Click-to-Run elevation of privilege
+- CVE-2026-25075: strongSwan — Integer underflow in EAP-TTLS AVP parser
+- CVE-2026-32854: LibVNCServer — Null pointer dereference in HTTP proxy handlers
+- CVE-2026-5720: miniupnpd — Out-of-bounds read in SOAPAction header parsing
+- CVE-2026-28525: SWUpdate — Out-of-bounds heap read in multipart upload parser
+
+## Blog Posts
+
+- [Inside NOFILTER-NFEXEC: A Deep Dive into WFP Implementation and BOF OPSEC Engineering](https://y637f9qq2x.com/posts/nofilter-nfexec/)
+- [Beneath the Perimeter: Structural Memory Safety Issues in Embedded Protocol Stacks](https://y637f9qq2x.com/posts/embedded-protocol-stack-vulnerabilities/)
+- [Hook, Nonce, Bypass: The Structural Root of WordPress Plugin Vulnerabilities](https://y637f9qq2x.com/posts/wordpress-plugin-vulnerabilities/)
+- [Finding a 15-Year-Old Zero-Day in strongSwan with AI-Assisted Code Analysis](https://y637f9qq2x.com/posts/cve-2026-25075/)

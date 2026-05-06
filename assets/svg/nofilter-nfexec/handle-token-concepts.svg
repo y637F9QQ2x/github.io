@@ -1,0 +1,52 @@
+<svg viewBox="0 0 820 254" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="820" height="254">
+<rect width="820" height="254" fill="#fff"/>
+<g transform="translate(20,0)">
+<text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">WINDOWS INTERNALS — HANDLES AND TOKENS</text>
+<rect x="20" y="44" width="740" height="1" fill="#eee" stroke="none"/>
+<rect x="0" y="91" width="220" height="132" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="0" y="91" width="220" height="30" rx="0" fill="#333" stroke="#333" stroke-width="1"/>
+<text x="110" y="111" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ddd" letter-spacing="0.04em">BFE PROCESS (PID 840)</text>
+<rect x="1" y="121" width="218" height="34" rx="0" fill="#fafafa" stroke="none"/>
+<text x="14" y="143" text-anchor="start" font-size="13" font-weight="600" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x1A4</text>
+<text x="206" y="143" text-anchor="end" font-size="11" font-weight="400" fill="#555">File</text>
+<rect x="1" y="155" width="218" height="34" rx="0" fill="#fff" stroke="none"/>
+<line x1="0" y1="155" x2="220" y2="155" stroke="#eee" stroke-width="1"/>
+<text x="14" y="177" text-anchor="start" font-size="13" font-weight="600" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x2B0</text>
+<text x="206" y="177" text-anchor="end" font-size="11" font-weight="400" fill="#555">Process</text>
+<rect x="1" y="189" width="218" height="34" rx="0" fill="#fce4e4" stroke="none"/>
+<line x1="0" y1="189" x2="220" y2="189" stroke="#eee" stroke-width="1"/>
+<text x="14" y="211" text-anchor="start" font-size="13" font-weight="600" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x3CC</text>
+<text x="206" y="211" text-anchor="end" font-size="11" font-weight="400" fill="#c33">Token</text>
+<rect x="560" y="91" width="220" height="132" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="560" y="91" width="220" height="30" rx="0" fill="#333" stroke="#333" stroke-width="1"/>
+<text x="670" y="111" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ddd" letter-spacing="0.04em">LSASS.EXE (PID 680)</text>
+<rect x="561" y="121" width="218" height="34" rx="0" fill="#fafafa" stroke="none"/>
+<text x="574" y="143" text-anchor="start" font-size="13" font-weight="600" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x088</text>
+<text x="766" y="143" text-anchor="end" font-size="11" font-weight="400" fill="#555">File</text>
+<rect x="561" y="155" width="218" height="34" rx="0" fill="#fce4e4" stroke="none"/>
+<line x1="560" y1="155" x2="780" y2="155" stroke="#eee" stroke-width="1"/>
+<text x="574" y="177" text-anchor="start" font-size="13" font-weight="600" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x1A4</text>
+<text x="766" y="177" text-anchor="end" font-size="11" font-weight="400" fill="#c33">Token</text>
+<rect x="561" y="189" width="218" height="34" rx="0" fill="#fafafa" stroke="none"/>
+<line x1="560" y1="189" x2="780" y2="189" stroke="#eee" stroke-width="1"/>
+<text x="574" y="211" text-anchor="start" font-size="13" font-weight="600" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x210</text>
+<text x="766" y="211" text-anchor="end" font-size="11" font-weight="400" fill="#555">Process</text>
+<text x="390" y="64" text-anchor="middle" font-size="11" font-weight="600" fill="#666" letter-spacing="0.06em">KERNEL OBJECTS</text>
+<rect x="280" y="82" width="220" height="42" rx="0" fill="#eef2f7" stroke="#36c" stroke-width="1.2"/>
+<text x="390" y="100" text-anchor="middle" font-size="12" font-weight="600" fill="#36c" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">\Device\WfpAle</text>
+<text x="390" y="116" text-anchor="middle" font-size="10" font-weight="400" fill="#666">File object</text>
+<rect x="280" y="136" width="220" height="42" rx="0" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+<text x="390" y="154" text-anchor="middle" font-size="12" font-weight="600" fill="#333">lsass.exe</text>
+<text x="390" y="170" text-anchor="middle" font-size="10" font-weight="400" fill="#666">Process object</text>
+<rect x="280" y="190" width="220" height="42" rx="0" fill="#c33" stroke="#a22" stroke-width="1.2"/>
+<text x="390" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">SYSTEM token</text>
+<text x="390" y="224" text-anchor="middle" font-size="10" font-weight="400" fill="#fcc">Token object (attack target)</text>
+<line x1="220" y1="138" x2="272.2" y2="107.5" stroke="#36c" stroke-width="1.5" stroke-dasharray="5,3"/>
+<path d="M 280,103 L 274.2,111.0 L 270.2,104.1 z" fill="#36c" stroke="none"/>
+<line x1="220" y1="206" x2="271.0" y2="210.3" stroke="#c33" stroke-width="2.0" stroke-dasharray="5,3"/>
+<path d="M 280,211 L 270.7,214.2 L 271.4,206.3 z" fill="#c33" stroke="none"/>
+<line x1="560" y1="172" x2="507.5" y2="206.1" stroke="#c33" stroke-width="2.0" stroke-dasharray="5,3"/>
+<path d="M 500,211 L 505.4,202.7 L 509.7,209.4 z" fill="#c33" stroke="none"/>
+<line x1="560" y1="206" x2="507.0" y2="162.7" stroke="#999" stroke-width="1.2" stroke-dasharray="5,3"/>
+<path d="M 500,157 L 509.5,159.6 L 504.4,165.8 z" fill="#999" stroke="none"/>
+</g></svg>

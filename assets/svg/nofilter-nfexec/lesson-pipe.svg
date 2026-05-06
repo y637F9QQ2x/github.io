@@ -1,0 +1,29 @@
+<svg viewBox="0 0 860 356" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="356"><rect width="860" height="356" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">PIPE DEADLOCK — WHY THE DEMON HANGS</text>
+<rect x="0" y="50" width="780" height="28" rx="0" fill="#c33" stroke="#c33" stroke-width="1"/>
+<rect x="0" y="78" width="780" height="156" rx="0" fill="#fff" stroke="#c33" stroke-width="1.8"/>
+<text x="390" y="69" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" letter-spacing="0.04em">THE DEADLOCK  (CreatePipe buffer = 4 KB default)</text>
+<rect x="100" y="108" width="200" height="70" rx="0" fill="#e8eef8" stroke="#36c" stroke-width="1.6"/>
+<text x="200" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#222">BOF thread</text>
+<text x="200" y="154" text-anchor="middle" font-size="10" font-weight="400" fill="#36c" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtWaitForSingleObject</text>
+<text x="200" y="168" text-anchor="middle" font-size="10" font-weight="400" fill="#666">(waits for child to exit)</text>
+<rect x="480" y="108" width="200" height="70" rx="0" fill="#fde8e8" stroke="#c33" stroke-width="1.6"/>
+<text x="580" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#222">Child process</text>
+<text x="580" y="154" text-anchor="middle" font-size="10" font-weight="400" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">WriteFile(hPipe, ...)</text>
+<text x="580" y="168" text-anchor="middle" font-size="10" font-weight="400" fill="#c33">(blocked — buffer full)</text>
+<rect x="330" y="129" width="120" height="28" rx="0" fill="#c33" stroke="#a22" stroke-width="1.4"/>
+<text x="390" y="148" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">4 KB FULL</text>
+<line x1="230" y1="100" x2="540.0" y2="100.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 550.0 100.0 L 540.0 104.5 L 540.0 95.5 z" fill="#c33" stroke="none"/>
+<text x="390" y="94" text-anchor="middle" font-size="10" font-weight="600" fill="#c33">waits for child to exit</text>
+<line x1="550" y1="194" x2="240.0" y2="194.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 230.0 194.0 L 240.0 189.5 L 240.0 198.5 z" fill="#c33" stroke="none"/>
+<text x="390" y="188" text-anchor="middle" font-size="10" font-weight="600" fill="#c33">pipe not read (BOF is waiting, not reading)</text>
+<text x="390" y="220" text-anchor="middle" font-size="12" font-weight="700" fill="#c33">DEADLOCK — both sides blocked forever</text>
+<rect x="0" y="246" width="780" height="28" rx="0" fill="#2a7" stroke="#2a7" stroke-width="1"/>
+<text x="390" y="265" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" letter-spacing="0.08em">THE FIX</text>
+<rect x="0" y="274" width="780" height="60" rx="0" fill="#fff" stroke="#2a7" stroke-width="1.8"/>
+<text x="20" y="296" text-anchor="start" font-size="13" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">CreatePipe(&amp;hR, &amp;hW, &amp;sa, 1048576);</text>
+<text x="20" y="318" text-anchor="start" font-size="11" font-weight="400" fill="#555">1 MB buffer — large enough for any practical command output.</text>
+<rect x="520" y="284" width="220" height="34" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.2"/>
+<rect x="520" y="284" width="30" height="34" rx="0" fill="#2a7" stroke="#2a7" stroke-width="1"/>
+<text x="645" y="306" text-anchor="middle" font-size="10" font-weight="500" fill="#2a7">1 MB — plenty of room</text></g></svg>

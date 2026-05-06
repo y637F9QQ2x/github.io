@@ -1,0 +1,38 @@
+<svg viewBox="0 0 860 292" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="292"><rect width="860" height="292" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">OEM CODEPAGE — WHY NON-ASCII OUTPUT BECOMES MOJIBAKE</text>
+<rect x="0" y="50" width="780" height="28" rx="0" fill="#c33" stroke="#c33" stroke-width="1"/>
+<text x="390" y="69" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" letter-spacing="0.06em">WITHOUT CONVERSION — MOJIBAKE</text>
+<rect x="0" y="78" width="780" height="70" rx="0" fill="#fff" stroke="#c33" stroke-width="1.8"/>
+<rect x="90" y="90" width="180" height="44" rx="0" fill="#ffeaea" stroke="#c33" stroke-width="1.2"/>
+<text x="180" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#222">ipconfig output</text>
+<text x="180" y="126" text-anchor="middle" font-size="10" font-weight="400" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">(OEM codepage bytes)</text>
+<line x1="270" y1="112" x2="290.0" y2="112.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 300.0 112.0 L 290.0 116.5 L 290.0 107.5 z" fill="#c33" stroke="none"/>
+<rect x="300" y="90" width="180" height="44" rx="0" fill="#ffeaea" stroke="#c33" stroke-width="1.2"/>
+<text x="390" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#222">Havoc console</text>
+<text x="390" y="126" text-anchor="middle" font-size="10" font-weight="400" fill="#666">expects UTF-8</text>
+<line x1="480" y1="112" x2="500.0" y2="112.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 510.0 112.0 L 500.0 116.5 L 500.0 107.5 z" fill="#c33" stroke="none"/>
+<rect x="510" y="90" width="180" height="44" rx="0" fill="#c33" stroke="#a22" stroke-width="1.4"/>
+<text x="600" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">0xC3 0xA9 garbled</text>
+<text x="600" y="126" text-anchor="middle" font-size="10" font-weight="400" fill="#fff">byte mismatch = mojibake</text>
+<rect x="0" y="162" width="780" height="28" rx="0" fill="#2a7" stroke="#2a7" stroke-width="1"/>
+<text x="390" y="181" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" letter-spacing="0.06em">THE FIX — TWO-STEP CONVERSION</text>
+<rect x="0" y="190" width="780" height="80" rx="0" fill="#fff" stroke="#2a7" stroke-width="1.8"/>
+<rect x="40" y="204" width="160" height="50" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.2"/>
+<text x="120" y="224" text-anchor="middle" font-size="12" font-weight="600" fill="#222">OEM bytes</text>
+<text x="120" y="242" text-anchor="middle" font-size="9" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">Shift-JIS etc.</text>
+<line x1="200" y1="229" x2="210.0" y2="229.0" stroke="#2a7" stroke-width="2.0"/>
+<path d="M 220.0 229.0 L 210.0 233.5 L 210.0 224.5 z" fill="#2a7" stroke="none"/>
+<rect x="220" y="204" width="160" height="50" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.2"/>
+<text x="300" y="224" text-anchor="middle" font-size="12" font-weight="600" fill="#222">UTF-16</text>
+<text x="300" y="242" text-anchor="middle" font-size="9" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">MultiByteToWideChar</text>
+<line x1="380" y1="229" x2="390.0" y2="229.0" stroke="#2a7" stroke-width="2.0"/>
+<path d="M 400.0 229.0 L 390.0 233.5 L 390.0 224.5 z" fill="#2a7" stroke="none"/>
+<rect x="400" y="204" width="160" height="50" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.2"/>
+<text x="480" y="224" text-anchor="middle" font-size="12" font-weight="600" fill="#222">UTF-8</text>
+<text x="480" y="242" text-anchor="middle" font-size="9" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">WideCharToMultiByte</text>
+<line x1="560" y1="229" x2="570.0" y2="229.0" stroke="#2a7" stroke-width="2.0"/>
+<path d="M 580.0 229.0 L 570.0 233.5 L 570.0 224.5 z" fill="#2a7" stroke="none"/>
+<rect x="580" y="204" width="160" height="50" rx="0" fill="#2a7" stroke="#2a7" stroke-width="1"/>
+<text x="660" y="224" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">correct!</text>
+<text x="660" y="242" text-anchor="middle" font-size="10" font-weight="400" fill="#fff">no mojibake</text></g></svg>

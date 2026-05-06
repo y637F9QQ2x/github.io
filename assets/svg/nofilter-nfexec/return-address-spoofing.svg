@@ -1,0 +1,115 @@
+<svg viewBox="0 0 860 584" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="584"><rect width="860" height="584" fill="#fff"/><defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#777"/>
+</marker>
+<marker id="arrowR" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#c33"/>
+</marker>
+<marker id="arrowGr" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#2a7"/>
+</marker>
+</defs><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="13" font-weight="500" fill="#111" letter-spacing="0.05em">RETURN ADDRESS SPOOFING — STACK MANIPULATION</text>
+<line x1="20" y1="42" x2="760" y2="42" stroke="#eee" stroke-width="1"/>
+<text x="390" y="70" text-anchor="middle" font-size="10" font-weight="500" fill="#444" letter-spacing="0.04em">STAGE A — The problem</text>
+<rect x="20" y="96" width="200" height="96" rx="0" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+<text x="120" y="114" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111">BOF calls a syscall stub</text>
+<text x="120" y="132" text-anchor="middle" font-size="9" font-weight="400" fill="#555" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">→ CALL pushes return addr</text>
+<text x="120" y="146" text-anchor="middle" font-size="9" font-weight="400" fill="#555">  (the BOF address) onto</text>
+<text x="120" y="158" text-anchor="middle" font-size="9" font-weight="400" fill="#555">  the top of the stack</text>
+<text x="120" y="178" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">↓ stack now looks like ↓</text>
+<rect x="260" y="82" width="260" height="14" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="390" y="92" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">Stack (just before the syscall)</text>
+<rect x="260" y="96" width="260" height="24" rx="0" fill="#fce4e4" stroke="#ccc" stroke-width="1"/>
+<text x="268" y="111" text-anchor="start" font-size="8.5" font-weight="400" fill="#a55" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP]</text>
+<text x="415" y="111" text-anchor="middle" font-size="9" font-weight="500" fill="#c33">BOF caller return  (0x0000023C…)</text>
+<rect x="260" y="120" width="260" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="268" y="135" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+8]</text>
+<text x="415" y="135" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<rect x="260" y="144" width="260" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="268" y="159" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+10]</text>
+<text x="415" y="159" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<rect x="260" y="168" width="260" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="268" y="183" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+18]</text>
+<text x="415" y="183" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<text x="390" y="206" text-anchor="middle" font-size="8.5" font-weight="500" fill="#c33">↑ this is the address EDR examines</text>
+<rect x="540" y="96" width="220" height="96" rx="0" fill="#fff5f5" stroke="#c33" stroke-width="1"/>
+<text x="650" y="114" text-anchor="middle" font-size="10" font-weight="500" fill="#c33">EDR — Stack Walk</text>
+<text x="650" y="132" text-anchor="middle" font-size="9" font-weight="400" fill="#a33">reads [RSP] →</text>
+<text x="650" y="146" text-anchor="middle" font-size="9" font-weight="400" fill="#a33">checks: 'is this address</text>
+<text x="650" y="158" text-anchor="middle" font-size="9" font-weight="400" fill="#a33">inside a known DLL?'</text>
+<text x="650" y="178" text-anchor="middle" font-size="10" font-weight="500" fill="#c33">→ NO  →  FLAG</text>
+<line x1="536" y1="108" x2="524" y2="108" stroke="#c33" stroke-width="1.6" marker-end="url(#arrowR)" stroke-dasharray="4,3"/>
+<line x1="224" y1="108" x2="256" y2="108" stroke="#777" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<line x1="20" y1="228" x2="760" y2="228" stroke="#eee" stroke-width="1"/>
+<text x="390" y="248" text-anchor="middle" font-size="10" font-weight="500" fill="#444" letter-spacing="0.04em">STAGE B — The fix</text>
+<rect x="20" y="262" width="240" height="14" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="140" y="272" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">BEFORE  (without spoofing)</text>
+<rect x="20" y="276" width="240" height="24" rx="0" fill="#fce4e4" stroke="#ccc" stroke-width="1"/>
+<text x="28" y="291" text-anchor="start" font-size="8.5" font-weight="400" fill="#a55" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP]</text>
+<text x="165" y="291" text-anchor="middle" font-size="9" font-weight="500" fill="#c33">BOF caller return</text>
+<rect x="20" y="300" width="240" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="28" y="315" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+8]</text>
+<text x="165" y="315" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<rect x="20" y="324" width="240" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="28" y="339" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+10]</text>
+<text x="165" y="339" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<rect x="20" y="348" width="240" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="28" y="363" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+18]</text>
+<text x="165" y="363" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<rect x="520" y="262" width="240" height="14" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="640" y="272" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">AFTER  (spoofed)</text>
+<rect x="520" y="276" width="240" height="24" rx="0" fill="#e4f5e4" stroke="#ccc" stroke-width="1"/>
+<text x="528" y="291" text-anchor="start" font-size="8.5" font-weight="400" fill="#599" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP]</text>
+<text x="665" y="291" text-anchor="middle" font-size="9" font-weight="500" fill="#2a7">ntdll ret gadget  (C3)</text>
+<rect x="520" y="300" width="240" height="24" rx="0" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+<text x="528" y="315" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+8]</text>
+<text x="665" y="315" text-anchor="middle" font-size="9" font-weight="400" fill="#555">BOF caller return</text>
+<rect x="520" y="324" width="240" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="528" y="339" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+10]</text>
+<text x="665" y="339" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<rect x="520" y="348" width="240" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="528" y="363" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+18]</text>
+<text x="665" y="363" text-anchor="middle" font-size="9" font-weight="400" fill="#555">shadow space</text>
+<rect x="290" y="282" width="200" height="84" rx="0" fill="#fafafa" stroke="#ccc" stroke-width="1"/>
+<text x="390" y="300" text-anchor="middle" font-size="9" font-weight="500" fill="#444">Stub does:</text>
+<text x="390" y="320" text-anchor="middle" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">sub rsp, 8</text>
+<text x="390" y="336" text-anchor="middle" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">mov [rsp], gadget+2</text>
+<text x="390" y="354" text-anchor="middle" font-size="8" font-weight="400" fill="#666">(gadget+2 = ntdll's 'ret')</text>
+<line x1="262" y1="324" x2="286" y2="324" stroke="#777" stroke-width="1.6" marker-end="url(#arrowG)"/>
+<line x1="492" y1="324" x2="516" y2="324" stroke="#2a7" stroke-width="1.8" marker-end="url(#arrowGr)"/>
+<text x="140" y="386" text-anchor="middle" font-size="8.5" font-weight="500" fill="#c33">↑ EDR sees BOF — flagged</text>
+<text x="640" y="386" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2a7">↑ EDR sees an ntdll address — looks legit</text>
+<line x1="20" y1="408" x2="760" y2="408" stroke="#eee" stroke-width="1"/>
+<text x="390" y="428" text-anchor="middle" font-size="10" font-weight="500" fill="#444" letter-spacing="0.04em">STAGE C — The return chain</text>
+<rect x="0" y="452" width="220" height="110" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="0" y="452" width="220" height="18" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="110" y="464" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">① Just before the syscall fires</text>
+<rect x="6" y="474" width="208" height="24" rx="0" fill="#e4f5e4" stroke="#ccc" stroke-width="1"/>
+<text x="14" y="489" text-anchor="start" font-size="8" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP]</text>
+<text x="135" y="489" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2a7">ntdll ret gadget  (FAKE)</text>
+<rect x="6" y="498" width="208" height="24" rx="0" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+<text x="14" y="513" text-anchor="start" font-size="8" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+8]</text>
+<text x="135" y="513" text-anchor="middle" font-size="8.5" font-weight="400" fill="#555">BOF caller return</text>
+<text x="110" y="536" text-anchor="middle" font-size="8.5" font-weight="500" fill="#444">RIP = stub's jmp</text>
+<rect x="280" y="452" width="220" height="110" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="280" y="452" width="220" height="18" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="390" y="464" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">② After syscall;ret  (1st pop)</text>
+<rect x="286" y="474" width="208" height="24" rx="0" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+<text x="294" y="489" text-anchor="start" font-size="8" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP]</text>
+<text x="415" y="489" text-anchor="middle" font-size="8.5" font-weight="400" fill="#555">BOF caller return</text>
+<rect x="286" y="498" width="208" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="294" y="513" text-anchor="start" font-size="8" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+8]</text>
+<text x="415" y="513" text-anchor="middle" font-size="8.5" font-weight="400" fill="#888">shadow space</text>
+<text x="390" y="536" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2a7">RIP = ntdll ret gadget  ('ret')</text>
+<rect x="560" y="452" width="220" height="110" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="560" y="452" width="220" height="18" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="670" y="464" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">③ After ntdll's ret  (2nd pop)</text>
+<rect x="566" y="474" width="208" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="574" y="489" text-anchor="start" font-size="8" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP]</text>
+<text x="695" y="489" text-anchor="middle" font-size="8.5" font-weight="400" fill="#888">shadow space</text>
+<rect x="566" y="498" width="208" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+<text x="574" y="513" text-anchor="start" font-size="8" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">[RSP+8]</text>
+<text x="695" y="513" text-anchor="middle" font-size="8.5" font-weight="400" fill="#888">shadow space</text>
+<text x="670" y="536" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2a7">RIP = BOF caller  (back in BOF)</text>
+<line x1="222" y1="507" x2="276" y2="507" stroke="#777" stroke-width="1.6" marker-end="url(#arrowG)"/>
+<line x1="502" y1="507" x2="556" y2="507" stroke="#777" stroke-width="1.6" marker-end="url(#arrowG)"/></g></svg>

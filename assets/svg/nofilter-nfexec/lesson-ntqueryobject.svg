@@ -1,0 +1,26 @@
+<svg viewBox="120 0 620 212" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="620" height="212"><rect x="120" width="620" height="212" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">NtQueryObject — AVOIDING THE KERNEL DEADLOCK</text>
+<text x="180" y="54" text-anchor="middle" font-size="10" font-weight="400" fill="#2a7">always safe</text>
+<rect x="90" y="60" width="180" height="44" rx="0" fill="#e8eef8" stroke="#36c" stroke-width="1.4"/>
+<text x="180" y="78" text-anchor="middle" font-size="12" font-weight="600" fill="#222">Query handle</text>
+<text x="180" y="94" text-anchor="middle" font-size="9" font-weight="400" fill="#36c" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ObjectTypeInformation</text>
+<line x1="270" y1="82" x2="290.0" y2="82.0" stroke="#666" stroke-width="2.0"/>
+<path d="M 300.0 82.0 L 290.0 86.5 L 290.0 77.5 z" fill="#666" stroke="none"/>
+<rect x="300" y="60" width="180" height="44" rx="0" fill="#fff" stroke="#888" stroke-width="1.4"/>
+<text x="390" y="78" text-anchor="middle" font-size="12" font-weight="600" fill="#222">type == "File" ?</text>
+<text x="390" y="94" text-anchor="middle" font-size="9" font-weight="400" fill="#666">(check before proceeding)</text>
+<line x1="480" y1="74" x2="500.0" y2="74.0" stroke="#2a7" stroke-width="2.0"/>
+<path d="M 510.0 74.0 L 500.0 78.5 L 500.0 69.5 z" fill="#2a7" stroke="none"/>
+<text x="495" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#2a7">Yes</text>
+<rect x="510" y="60" width="180" height="44" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.4"/>
+<text x="600" y="78" text-anchor="middle" font-size="12" font-weight="600" fill="#222">Query name</text>
+<text x="600" y="94" text-anchor="middle" font-size="9" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ObjectNameInformation</text>
+<line x1="390" y1="104" x2="390.0" y2="124.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 390.0 134.0 L 385.5 124.0 L 394.5 124.0 z" fill="#c33" stroke="none"/>
+<text x="406" y="118" text-anchor="start" font-size="11" font-weight="700" fill="#c33">No</text>
+<rect x="300" y="134" width="180" height="56" rx="0" fill="#fde8e8" stroke="#c33" stroke-width="1.4"/>
+<text x="390" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#c33">SKIP this handle</text>
+<text x="390" y="176" text-anchor="middle" font-size="9" font-weight="400" fill="#c33">(would deadlock in kernel)</text>
+<rect x="510" y="134" width="180" height="56" rx="0" fill="#c33" stroke="#a22" stroke-width="1.4"/>
+<text x="600" y="152" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Calling ObjectNameInfo</text>
+<text x="600" y="166" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">on pipes/ALPC =</text>
+<text x="600" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">KERNEL DEADLOCK</text></g></svg>

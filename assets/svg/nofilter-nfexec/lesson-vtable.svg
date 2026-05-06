@@ -1,0 +1,40 @@
+<svg viewBox="77 0 693 478" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="693" height="478"><rect x="77" width="693" height="478" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">COM VTABLE — HOW TO COUNT SLOTS CORRECTLY</text>
+<text x="220" y="52" text-anchor="middle" font-size="12" font-weight="600" fill="#444">AppDomain vtable</text>
+<rect x="80" y="60" width="280" height="21" rx="0" fill="#e0e0e0" stroke="#bbb" stroke-width="0.8"/>
+<text x="72" y="74" text-anchor="end" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0-2</text>
+<text x="90" y="74" text-anchor="start" font-size="10" font-weight="400" fill="#555">IUnknown (3)</text>
+<rect x="80" y="81" width="280" height="28" rx="0" fill="#d4e8fc" stroke="#bbb" stroke-width="0.8"/>
+<text x="72" y="99" text-anchor="end" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">3-6</text>
+<text x="90" y="99" text-anchor="start" font-size="10" font-weight="400" fill="#36c">IDispatch (4)</text>
+<rect x="80" y="109" width="280" height="28" rx="0" fill="#d4e8fc" stroke="#bbb" stroke-width="0.8"/>
+<text x="72" y="127" text-anchor="end" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">7-10</text>
+<text x="90" y="127" text-anchor="start" font-size="10" font-weight="400" fill="#36c">_Object (4)</text>
+<rect x="80" y="137" width="280" height="21" rx="0" fill="#e8e0f8" stroke="#bbb" stroke-width="0.8"/>
+<text x="72" y="151" text-anchor="end" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">11-13</text>
+<text x="90" y="151" text-anchor="start" font-size="10" font-weight="400" fill="#639">Other base (3)</text>
+<rect x="80" y="158" width="280" height="98" rx="0" fill="#fde8e8" stroke="#bbb" stroke-width="0.8"/>
+<text x="72" y="211" text-anchor="end" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">14-27</text>
+<text x="90" y="211" text-anchor="start" font-size="10" font-weight="400" fill="#c33">Event handlers (14)</text>
+<rect x="80" y="256" width="280" height="119" rx="0" fill="#e8f5e9" stroke="#bbb" stroke-width="0.8"/>
+<text x="72" y="319" text-anchor="end" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">28-44</text>
+<text x="90" y="319" text-anchor="start" font-size="10" font-weight="400" fill="#2a7">AppDomain methods (17)</text>
+<rect x="80" y="375" width="280" height="21" rx="0" fill="#c33" stroke="#a22" stroke-width="1.4"/>
+<text x="90" y="389" text-anchor="start" font-size="12" font-weight="700" fill="#fff">Load_3</text>
+<text x="72" y="389" text-anchor="end" font-size="11" font-weight="700" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">45</text>
+<rect x="80" y="396" width="280" height="28" rx="0" fill="#f0f0f0" stroke="#bbb" stroke-width="0.8"/>
+<text x="90" y="414" text-anchor="start" font-size="10" font-weight="400" fill="#999">...</text>
+<text x="420" y="52" text-anchor="start" font-size="12" font-weight="600" fill="#333">Key slot numbers:</text>
+<rect x="420" y="64" width="300" height="50" rx="0" fill="#fff" stroke="#888" stroke-width="1"/>
+<text x="430" y="84" text-anchor="start" font-size="12" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">AppDomain.Load_3</text>
+<text x="710" y="84" text-anchor="end" font-size="12" font-weight="700" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">slot 45</text>
+<text x="430" y="102" text-anchor="start" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">3+4+4+3+14+17=45</text>
+<rect x="420" y="122" width="300" height="50" rx="0" fill="#fff" stroke="#888" stroke-width="1"/>
+<text x="430" y="142" text-anchor="start" font-size="12" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">Assembly.EntryPoint</text>
+<text x="710" y="142" text-anchor="end" font-size="12" font-weight="700" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">slot 16</text>
+<text x="430" y="160" text-anchor="start" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">3+4+4+5=16</text>
+<rect x="420" y="180" width="300" height="50" rx="0" fill="#fff" stroke="#888" stroke-width="1"/>
+<text x="430" y="200" text-anchor="start" font-size="12" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">MethodInfo.Invoke_3</text>
+<text x="710" y="200" text-anchor="end" font-size="12" font-weight="700" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">slot 37</text>
+<text x="430" y="218" text-anchor="start" font-size="9" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">3+4+...+1=37</text>
+<text x="390" y="438" text-anchor="middle" font-size="11" font-weight="700" fill="#c33">Wrong slot = call a completely different function = crash.</text>
+<text x="390" y="456" text-anchor="middle" font-size="10" font-weight="400" fill="#666">Count IUnknown(3) + IDispatch(4) + all base interface methods, then your target.</text></g></svg>

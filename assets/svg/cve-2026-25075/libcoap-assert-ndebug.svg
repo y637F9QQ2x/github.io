@@ -1,0 +1,55 @@
+<svg viewBox="0 0 860 408" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="408">
+<rect width="860" height="408" fill="#fff"/>
+<defs>
+<marker id="arrowGray" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#c8c8c8"/>
+</marker>
+<marker id="arrowGreen" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#2a7a3a"/>
+</marker>
+<marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#B03020"/>
+</marker>
+</defs>
+<g transform="translate(40,0)">
+<text x="390" y="24" text-anchor="middle" font-size="9" font-weight="500" fill="#888" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">assert() IN DEBUG vs. RELEASE BUILDS — CVE-2026-29013</text>
+<text x="390" y="40" text-anchor="middle" font-size="10.5" font-weight="400" fill="#888" font-family="Helvetica Neue, Arial, sans-serif">Same source code compiles to completely different behaviour depending on build flags</text>
+<line x1="0" y1="52" x2="780" y2="52" stroke="#ebebeb" stroke-width="1"/>
+<rect x="0" y="60" width="370" height="30" fill="#111"/>
+<text x="185" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif">Debug build (without NDEBUG)</text>
+<rect x="410" y="60" width="370" height="30" fill="#B03020"/>
+<text x="595" y="80" text-anchor="middle" font-size="10.5" font-weight="600" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif">Release build (compiled with -DNDEBUG)</text>
+<line x1="390" y1="60" x2="390" y2="372" stroke="#ebebeb" stroke-width="1"/>
+<rect x="0" y="104" width="370" height="100" fill="#f9f9f9" stroke="#d0d0d0" stroke-width="1"/>
+<text x="185" y="120" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">SOURCE CODE</text>
+<line x1="6" y1="126" x2="364" y2="126" stroke="#e4e4e4" stroke-width="1"/>
+<rect x="10" y="132" width="350" height="26" fill="#fffde0" stroke="#d4c84a" stroke-width="1"/>
+<text x="185" y="149" text-anchor="middle" font-size="11" font-weight="500" fill="#333" font-family="Helvetica Neue, Arial, sans-serif">assert(option != NULL);</text>
+<text x="185" y="172" text-anchor="middle" font-size="8.5" font-weight="400" fill="#5a6a00" font-family="Helvetica Neue, Arial, sans-serif">Active: condition is checked at runtime</text>
+<text x="185" y="186" text-anchor="middle" font-size="8.5" font-weight="400" fill="#5a6a00" font-family="Helvetica Neue, Arial, sans-serif">and fires if false</text>
+<rect x="410" y="104" width="370" height="100" fill="#f9f9f9" stroke="#d0d0d0" stroke-width="1"/>
+<text x="595" y="120" text-anchor="middle" font-size="8" font-weight="500" fill="#bbb" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="0.08em">SOURCE CODE</text>
+<line x1="416" y1="126" x2="774" y2="126" stroke="#e4e4e4" stroke-width="1"/>
+<rect x="420" y="132" width="350" height="26" fill="#fdf0f0" stroke="#e0b0b0" stroke-width="1"/>
+<text x="595" y="149" text-anchor="middle" font-size="11" font-weight="500" fill="#ccc" font-family="Helvetica Neue, Arial, sans-serif">assert(option != NULL);</text>
+<line x1="428" y1="145" x2="762" y2="145" stroke="#B03020" stroke-width="2"/>
+<text x="595" y="172" text-anchor="middle" font-size="8.5" font-weight="400" fill="#8a2020" font-family="Helvetica Neue, Arial, sans-serif">Removed by preprocessor: this line</text>
+<text x="595" y="186" text-anchor="middle" font-size="8.5" font-weight="400" fill="#8a2020" font-family="Helvetica Neue, Arial, sans-serif">does not exist in the release binary</text>
+<text x="185" y="214" text-anchor="middle" font-size="8.5" font-weight="300" fill="#999" font-family="Helvetica Neue, Arial, sans-serif">The assert() check is active</text>
+<text x="595" y="214" text-anchor="middle" font-size="8.5" font-weight="300" fill="#999" font-family="Helvetica Neue, Arial, sans-serif">The assert() line is completely absent</text>
+<line x1="185" y1="232" x2="185" y2="264" stroke="#2a7a3a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+<line x1="595" y1="232" x2="595" y2="264" stroke="#B03020" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+<rect x="0" y="272" width="370" height="96" fill="#f0faf0" stroke="#5aaa70" stroke-width="1.5"/>
+<text x="185" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#1a5a2a" font-family="Helvetica Neue, Arial, sans-serif">assert fires immediately</text>
+<line x1="8" y1="302" x2="362" y2="302" stroke="#a0d0a0" stroke-width="1"/>
+<text x="185" y="318" text-anchor="middle" font-size="9.5" font-weight="400" fill="#2a7a3a" font-family="Helvetica Neue, Arial, sans-serif">Program crashes with an error message.</text>
+<text x="185" y="334" text-anchor="middle" font-size="9.5" font-weight="400" fill="#2a7a3a" font-family="Helvetica Neue, Arial, sans-serif">Developer sees the bug during testing.</text>
+<text x="185" y="350" text-anchor="middle" font-size="9.5" font-weight="400" fill="#2a7a3a" font-family="Helvetica Neue, Arial, sans-serif">Bug is found before it ships.</text>
+<rect x="410" y="272" width="370" height="96" fill="#fdf0f0" stroke="#e09090" stroke-width="1.5"/>
+<text x="595" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#7a1a1a" font-family="Helvetica Neue, Arial, sans-serif">assert() does not exist</text>
+<line x1="418" y1="302" x2="772" y2="302" stroke="#e0a0a0" stroke-width="1"/>
+<text x="595" y="318" text-anchor="middle" font-size="9.5" font-weight="400" fill="#B03020" font-family="Helvetica Neue, Arial, sans-serif">Code continues past the missing check.</text>
+<text x="595" y="334" text-anchor="middle" font-size="9.5" font-weight="400" fill="#B03020" font-family="Helvetica Neue, Arial, sans-serif">Out-of-bounds memory access in production.</text>
+<text x="595" y="350" text-anchor="middle" font-size="9.5" font-weight="400" fill="#B03020" font-family="Helvetica Neue, Arial, sans-serif">Bug ships silently to all users.</text>
+<text x="390" y="386" text-anchor="middle" font-size="10" font-weight="400" fill="#aaa" font-family="Helvetica Neue, Arial, sans-serif">In libcoap, this assert() was the ONLY bounds check — meaning the protection existed only in debug builds, never in production.</text>
+</g></svg>

@@ -1,0 +1,28 @@
+<svg viewBox="146 0 575 252" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="575" height="252"><rect x="146" width="575" height="252" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">DFR — ANNOTATED FUNCTION DECLARATION</text>
+<rect x="116" y="94" width="150" height="28" rx="0" fill="#f4f4f4" stroke="#36c" stroke-width="1.2"/>
+<text x="191" y="112" text-anchor="middle" font-size="12" font-weight="600" fill="#36c" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DECLSPEC_IMPORT</text>
+<line x1="191" y1="94" x2="191" y2="74" stroke="#36c" stroke-width="1.2"/>
+<text x="191" y="68" text-anchor="middle" font-size="10" font-weight="600" fill="#36c">tells compiler:</text>
+<text x="191" y="56" text-anchor="middle" font-size="9" font-weight="400" fill="#888">import from DLL</text>
+<rect x="284" y="94" width="42" height="28" rx="0" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="305" y="112" text-anchor="middle" font-size="12" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">LONG</text>
+<line x1="305" y1="122" x2="305" y2="142" stroke="#222" stroke-width="1.2"/>
+<text x="305" y="156" text-anchor="middle" font-size="10" font-weight="600" fill="#222">return type</text>
+<text x="305" y="168" text-anchor="middle" font-size="9" font-weight="400" fill="#888">(matches SDK)</text>
+<rect x="344" y="94" width="56" height="28" rx="0" fill="#f4f4f4" stroke="#c33" stroke-width="1.2"/>
+<text x="372" y="112" text-anchor="middle" font-size="12" font-weight="600" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">WINAPI</text>
+<line x1="372" y1="94" x2="372" y2="74" stroke="#c33" stroke-width="1.2"/>
+<text x="372" y="68" text-anchor="middle" font-size="10" font-weight="600" fill="#c33">calling convention</text>
+<text x="372" y="56" text-anchor="middle" font-size="9" font-weight="400" fill="#888">(__stdcall)</text>
+<rect x="418" y="94" width="184" height="28" rx="0" fill="#f4f4f4" stroke="#2a7" stroke-width="1.2"/>
+<text x="510" y="112" text-anchor="middle" font-size="12" font-weight="600" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NTDLL$NtOpenProcess</text>
+<line x1="510" y1="122" x2="510" y2="142" stroke="#2a7" stroke-width="1.2"/>
+<text x="510" y="156" text-anchor="middle" font-size="10" font-weight="600" fill="#2a7">DLL $ function</text>
+<text x="510" y="168" text-anchor="middle" font-size="9" font-weight="400" fill="#888">(DFR resolution)</text>
+<rect x="620" y="94" width="44" height="28" rx="0" fill="#f4f4f4" stroke="#888" stroke-width="1.2"/>
+<text x="642" y="112" text-anchor="middle" font-size="12" font-weight="600" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">(...);</text>
+<line x1="642" y1="94" x2="642" y2="74" stroke="#888" stroke-width="1.2"/>
+<text x="642" y="68" text-anchor="middle" font-size="10" font-weight="600" fill="#888">parameters</text>
+<text x="168.0" y="194" text-anchor="start" font-size="11" font-weight="500" fill="#444">CRT functions use __cdecl instead of WINAPI:</text>
+<rect x="168.0" y="202" width="442.59999999999997" height="28" rx="0" fill="#f4f4f4" stroke="#888" stroke-width="1"/>
+<text x="178.0" y="222" text-anchor="start" font-size="11" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DECLSPEC_IMPORT void * __cdecl MSVCRT$calloc(size_t, size_t);</text></g></svg>

@@ -1,0 +1,99 @@
+<svg viewBox="0 0 820 738" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="820" height="738">
+<rect width="820" height="738" fill="#fff"/>
+<g transform="translate(20,0)">
+<text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">PATCHLESS AMSI / ETW BYPASS — HARDWARE BREAKPOINTS</text>
+<rect x="20" y="44" width="740" height="1" fill="#eee" stroke="none"/>
+<text x="390" y="62" text-anchor="middle" font-size="11" font-weight="600" fill="#444" letter-spacing="0.04em">PART 1 — Setup</text>
+<rect x="0" y="78" width="240" height="140" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="0" y="78" width="240" height="24" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="120" y="94" text-anchor="middle" font-size="10" font-weight="600" fill="#333">DLL memory (read-only)</text>
+<text x="10" y="122" text-anchor="start" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">amsi.dll</text>
+<rect x="14" y="130" width="212" height="24" rx="0" fill="#fce4e4" stroke="#c33" stroke-width="1"/>
+<text x="22" y="146" text-anchor="start" font-size="10" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">AmsiScanBuffer</text>
+<text x="218" y="146" text-anchor="end" font-size="9" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DR0</text>
+<text x="10" y="172" text-anchor="start" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ntdll.dll</text>
+<rect x="14" y="180" width="212" height="24" rx="0" fill="#fce4e4" stroke="#c33" stroke-width="1"/>
+<text x="22" y="196" text-anchor="start" font-size="10" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">EtwEventWrite</text>
+<text x="218" y="196" text-anchor="end" font-size="9" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DR1</text>
+<rect x="270" y="78" width="240" height="140" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="270" y="78" width="240" height="24" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="390" y="94" text-anchor="middle" font-size="10" font-weight="600" fill="#333">Thread CONTEXT — debug regs</text>
+<rect x="276" y="106" width="228" height="20" rx="0" fill="#fafafa" stroke="#eee" stroke-width="0.5"/>
+<text x="284" y="120" text-anchor="start" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DR0</text>
+<text x="496" y="120" text-anchor="end" font-size="10" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">&amp;AmsiScanBuffer</text>
+<rect x="276" y="126" width="228" height="20" rx="0" fill="#fafafa" stroke="#eee" stroke-width="0.5"/>
+<text x="284" y="140" text-anchor="start" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DR1</text>
+<text x="496" y="140" text-anchor="end" font-size="10" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">&amp;EtwEventWrite</text>
+<rect x="276" y="146" width="228" height="20" rx="0" fill="#fafafa" stroke="#eee" stroke-width="0.5"/>
+<text x="284" y="160" text-anchor="start" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DR2</text>
+<text x="496" y="160" text-anchor="end" font-size="10" font-weight="500" fill="#bbb" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">(unused)</text>
+<rect x="276" y="166" width="228" height="20" rx="0" fill="#fafafa" stroke="#eee" stroke-width="0.5"/>
+<text x="284" y="180" text-anchor="start" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DR3</text>
+<text x="496" y="180" text-anchor="end" font-size="10" font-weight="500" fill="#bbb" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">(unused)</text>
+<rect x="276" y="186" width="228" height="20" rx="0" fill="#fafafa" stroke="#eee" stroke-width="0.5"/>
+<text x="284" y="200" text-anchor="start" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">DR7</text>
+<text x="496" y="200" text-anchor="end" font-size="10" font-weight="500" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">enable bits set</text>
+<rect x="540" y="78" width="240" height="140" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="540" y="78" width="240" height="24" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="660" y="94" text-anchor="middle" font-size="10" font-weight="600" fill="#333">NFEXEC setup phase</text>
+<text x="660" y="118" text-anchor="middle" font-size="10" font-weight="400" fill="#444">Resolves addresses via</text>
+<text x="660" y="134" text-anchor="middle" font-size="10" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">PEB walk + ExResolve()</text>
+<text x="660" y="166" text-anchor="middle" font-size="10" font-weight="400" fill="#444">Writes them into the</text>
+<text x="660" y="182" text-anchor="middle" font-size="10" font-weight="400" fill="#444">thread CONTEXT via</text>
+<text x="660" y="198" text-anchor="middle" font-size="10.5" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtSetContextThread</text>
+<line x1="240" y1="142" x2="278" y2="116" stroke="#c33" stroke-width="1.4" stroke-dasharray="4,3"/>
+<path d="M 270,116 L 278,112 L 278,120 z" fill="#c33" stroke="none"/>
+<line x1="240" y1="192" x2="278" y2="136" stroke="#c33" stroke-width="1.4" stroke-dasharray="4,3"/>
+<path d="M 270,136 L 278,132 L 278,140 z" fill="#c33" stroke="none"/>
+<line x1="540" y1="158" x2="518" y2="158" stroke="#777" stroke-width="1.5"/>
+<path d="M 510,158 L 518,154 L 518,162 z" fill="#777" stroke="none"/>
+<text x="525" y="174" text-anchor="middle" font-size="9" font-weight="500" fill="#666">writes</text>
+<rect x="20" y="232" width="740" height="1" fill="#eee" stroke="none"/>
+<text x="390" y="250" text-anchor="middle" font-size="11" font-weight="600" fill="#444" letter-spacing="0.04em">PART 2 — Runtime (when the CLR calls the protected function)</text>
+<rect x="20" y="266" width="740" height="50" rx="0" fill="#fff" stroke="#ddd" stroke-width="0.8"/>
+<rect x="20" y="266" width="5" height="50" rx="0" fill="#777" stroke="none"/>
+<circle cx="48" cy="291" r="13" fill="#777"/>
+<text x="48" y="296" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">1</text>
+<text x="70" y="287" text-anchor="start" font-size="11" font-weight="600" fill="#222">CLR calls AmsiScanBuffer / EtwEventWrite</text>
+<text x="70" y="305" text-anchor="start" font-size="10" font-weight="400" fill="#555">RIP = first byte of the target function</text>
+<line x1="390" y1="316" x2="390" y2="320" stroke="#777" stroke-width="2.0"/><path d="M 390,328 L 386,320 L 394,320 z" fill="#777" stroke="none"/>
+<rect x="20" y="328" width="740" height="50" rx="0" fill="#fce4e4" stroke="#ddd" stroke-width="0.8"/>
+<rect x="20" y="328" width="5" height="50" rx="0" fill="#c33" stroke="none"/>
+<circle cx="48" cy="353" r="13" fill="#c33"/>
+<text x="48" y="358" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">2</text>
+<text x="70" y="349" text-anchor="start" font-size="11" font-weight="600" fill="#222">CPU compares RIP against DR0...DR3 — match!</text>
+<text x="70" y="367" text-anchor="start" font-size="10" font-weight="400" fill="#555">Address matches DR0 (AMSI) or DR1 (ETW). Function body NOT yet executed.</text>
+<line x1="390" y1="378" x2="390" y2="382" stroke="#c33" stroke-width="2.0"/><path d="M 390,390 L 386,382 L 394,382 z" fill="#c33" stroke="none"/>
+<rect x="20" y="390" width="740" height="50" rx="0" fill="#fce4e4" stroke="#ddd" stroke-width="0.8"/>
+<rect x="20" y="390" width="5" height="50" rx="0" fill="#c33" stroke="none"/>
+<circle cx="48" cy="415" r="13" fill="#c33"/>
+<text x="48" y="420" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">3</text>
+<text x="70" y="411" text-anchor="start" font-size="11" font-weight="600" fill="#222">CPU raises EXCEPTION_SINGLE_STEP, saves CONTEXT, calls VEH</text>
+<text x="70" y="429" text-anchor="start" font-size="10" font-weight="400" fill="#555">Every register (RAX, RIP, RSP, ...) is preserved in a CONTEXT struct.</text>
+<line x1="390" y1="440" x2="390" y2="444" stroke="#c33" stroke-width="2.0"/><path d="M 390,452 L 386,444 L 394,444 z" fill="#c33" stroke="none"/>
+<rect x="20" y="452" width="740" height="50" rx="0" fill="#e4f5e4" stroke="#ddd" stroke-width="0.8"/>
+<rect x="20" y="452" width="5" height="50" rx="0" fill="#2a7" stroke="none"/>
+<circle cx="48" cy="477" r="13" fill="#2a7"/>
+<text x="48" y="482" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">4</text>
+<text x="70" y="473" text-anchor="start" font-size="11" font-weight="600" fill="#222">VEH inspects + edits the CONTEXT in place</text>
+<text x="70" y="491" text-anchor="start" font-size="10" font-weight="400" fill="#555">AMSI: *result = AMSI_RESULT_CLEAN, RAX = S_OK  |  ETW: RAX = 0</text>
+<line x1="390" y1="502" x2="390" y2="506" stroke="#2a7" stroke-width="2.0"/><path d="M 390,514 L 386,506 L 394,506 z" fill="#2a7" stroke="none"/>
+<rect x="20" y="514" width="740" height="50" rx="0" fill="#e4ecf5" stroke="#ddd" stroke-width="0.8"/>
+<rect x="20" y="514" width="5" height="50" rx="0" fill="#36c" stroke="none"/>
+<circle cx="48" cy="539" r="13" fill="#36c"/>
+<text x="48" y="544" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">5</text>
+<text x="70" y="535" text-anchor="start" font-size="11" font-weight="600" fill="#222">VEH sets RIP = [RSP] (the return address) and re-arms the DR</text>
+<text x="70" y="553" text-anchor="start" font-size="10" font-weight="400" fill="#555">RIP now points to the caller's next instruction. The CPU is rewound.</text>
+<line x1="390" y1="564" x2="390" y2="568" stroke="#36c" stroke-width="2.0"/><path d="M 390,576 L 386,568 L 394,568 z" fill="#36c" stroke="none"/>
+<rect x="20" y="576" width="740" height="50" rx="0" fill="#e4f5e4" stroke="#ddd" stroke-width="0.8"/>
+<rect x="20" y="576" width="5" height="50" rx="0" fill="#2a7" stroke="none"/>
+<circle cx="48" cy="601" r="13" fill="#2a7"/>
+<text x="48" y="606" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">6</text>
+<text x="70" y="597" text-anchor="start" font-size="11" font-weight="600" fill="#222">CPU resumes — caller sees a normal return; function body never ran</text>
+<text x="70" y="615" text-anchor="start" font-size="10" font-weight="400" fill="#555">No memory was patched. .text is byte-identical to disk.</text>
+<rect x="20" y="640" width="740" height="1" fill="#eee" stroke="none"/>
+<text x="390" y="658" text-anchor="middle" font-size="11" font-weight="600" fill="#444" letter-spacing="0.04em">PART 3 — Cleanup</text>
+<rect x="20" y="672" width="740" height="44" rx="0" fill="#e4f5e4" stroke="#2a7" stroke-width="1"/>
+<text x="390" y="690" text-anchor="middle" font-size="11" font-weight="600" fill="#2a7">DR0 = 0,  DR1 = 0,  DR7 cleared,  VEH removed</text>
+<text x="390" y="708" text-anchor="middle" font-size="10" font-weight="400" fill="#2a7">No memory patches remain — nothing for integrity scanners to detect.</text>
+</g></svg>

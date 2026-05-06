@@ -1,0 +1,90 @@
+<svg viewBox="0 0 860 556" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="556">
+<rect width="860" height="556" fill="#fff"/>
+<g transform="translate(40,0)">
+<text x="390" y="30" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">WINDOWS FILTERING PLATFORM (WFP) — ARCHITECTURE</text>
+<rect x="20" y="46" width="740" height="1" fill="#eee" stroke="none"/>
+<rect x="0" y="58" width="780" height="170" rx="0" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<rect x="0" y="58" width="780" height="28" rx="0" fill="#555" stroke="none"/>
+<text x="14" y="77" text-anchor="start" font-size="11" font-weight="600" fill="#fff" letter-spacing="0.06em">USER-MODE</text>
+<rect x="23" y="104" width="230" height="86" rx="0" fill="#fff" stroke="#999" stroke-width="1.2"/>
+<rect x="23" y="104" width="230" height="28" rx="0" fill="#eaeaea" stroke="#999" stroke-width="1.2"/>
+<circle cx="43" cy="118" r="10" fill="#888"/>
+<text x="43" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">1</text>
+<text x="59" y="123" text-anchor="start" font-size="11" font-weight="600" fill="#333">Firewall / VPN / AV</text>
+<text x="138" y="153" text-anchor="middle" font-size="11" font-weight="400" fill="#555">Normal WFP clients</text>
+<text x="138" y="173" text-anchor="middle" font-size="11" font-weight="400" fill="#555">Add/remove filters via API</text>
+<rect x="275" y="104" width="230" height="86" rx="0" fill="#fff" stroke="#999" stroke-width="1.2"/>
+<rect x="275" y="104" width="230" height="28" rx="0" fill="#eaeaea" stroke="#999" stroke-width="1.2"/>
+<circle cx="295" cy="118" r="10" fill="#888"/>
+<text x="295" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">2</text>
+<text x="311" y="123" text-anchor="start" font-size="11" font-weight="600" fill="#333">BFE Service</text>
+<text x="390" y="146" text-anchor="middle" font-size="11" font-weight="400" fill="#555">svchost.exe (PID varies)</text>
+<text x="390" y="163" text-anchor="middle" font-size="11" font-weight="600" fill="#333">Holds WfpAle handle</text>
+<text x="390" y="180" text-anchor="middle" font-size="11" font-weight="400" fill="#555">Manages all WFP filters</text>
+<rect x="527" y="104" width="230" height="86" rx="0" fill="#fff" stroke="#c33" stroke-width="1.2"/>
+<rect x="527" y="104" width="230" height="28" rx="0" fill="#ffeaea" stroke="#c33" stroke-width="1.2"/>
+<circle cx="547" cy="118" r="10" fill="#c33"/>
+<text x="547" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">3</text>
+<text x="563" y="123" text-anchor="start" font-size="11" font-weight="600" fill="#c33">Attacker BOF</text>
+<text x="642" y="146" text-anchor="middle" font-size="11" font-weight="400" fill="#555">Duplicates BFE handle</text>
+<text x="642" y="163" text-anchor="middle" font-size="11" font-weight="600" fill="#c33">Sends IOCTLs directly</text>
+<text x="642" y="180" text-anchor="middle" font-size="11" font-weight="400" fill="#555">to \Device\WfpAle</text>
+<line x1="253" y1="147" x2="267" y2="147" stroke="#888" stroke-width="1.5"/>
+<path d="M 275,147 L 267,143 L 267,151 z" fill="#888" stroke="none"/>
+<text x="264" y="98" text-anchor="middle" font-size="9" font-weight="500" fill="#666">WFP API</text>
+<line x1="264" y1="101" x2="264" y2="142" stroke="#888" stroke-width="0.8" stroke-dasharray="2,2"/>
+<line x1="505" y1="178" x2="519" y2="178" stroke="#c33" stroke-width="1.8" stroke-dasharray="6,3"/>
+<path d="M 527,178 L 519,174 L 519,182 z" fill="#c33" stroke="none"/>
+<text x="516" y="204" text-anchor="middle" font-size="9" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtDuplicateObject</text>
+<line x1="516" y1="178" x2="516" y2="194" stroke="#c33" stroke-width="0.8" stroke-dasharray="2,2"/>
+<rect x="0" y="228" width="780" height="28" rx="0" fill="#222"/>
+<text x="390" y="247" text-anchor="middle" font-size="10.5" font-weight="600" fill="#aaa" letter-spacing="0.08em">USER-MODE / KERNEL-MODE BOUNDARY</text>
+<line x1="350" y1="190" x2="100" y2="228" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3"/>
+<line x1="100" y1="256" x2="135" y2="300" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3"/>
+<path d="M 135,300 L 130,290 L 140,290 z" fill="#888" stroke="none"/>
+<line x1="662" y1="190" x2="660" y2="228" stroke="#c33" stroke-width="1.8"/>
+<line x1="660" y1="256" x2="255" y2="300" stroke="#c33" stroke-width="1.8"/>
+<path d="M 255,300 L 250,290 L 260,290 z" fill="#c33" stroke="none"/>
+<circle cx="660" cy="242" r="10" fill="#c33"/>
+<text x="660" y="246" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">4</text>
+<rect x="0" y="256" width="780" height="278" rx="0" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+<rect x="0" y="256" width="780" height="28" rx="0" fill="#222" stroke="none"/>
+<text x="14" y="275" text-anchor="start" font-size="11" font-weight="600" fill="#999" letter-spacing="0.06em">KERNEL-MODE</text>
+<text x="766" y="275" text-anchor="end" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">tcpip.sys</text>
+<rect x="20" y="300" width="350" height="104" rx="0" fill="#252525" stroke="#555" stroke-width="1.2"/>
+<rect x="20" y="300" width="350" height="28" rx="0" fill="#333" stroke="#555" stroke-width="1.2"/>
+<text x="195" y="319" text-anchor="middle" font-size="13" font-weight="600" fill="#eee">\Device\WfpAle</text>
+<text x="195" y="346" text-anchor="middle" font-size="11" font-weight="400" fill="#aaa">Receives IOCTL commands</text>
+<text x="195" y="366" text-anchor="middle" font-size="12" font-weight="500" fill="#eee" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x128000  Insert token</text>
+<text x="195" y="386" text-anchor="middle" font-size="12" font-weight="500" fill="#eee" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">0x124008  Retrieve token</text>
+<rect x="410" y="300" width="350" height="104" rx="0" fill="#252525" stroke="#555" stroke-width="1.2"/>
+<rect x="410" y="300" width="350" height="28" rx="0" fill="#333" stroke="#555" stroke-width="1.2"/>
+<text x="585" y="319" text-anchor="middle" font-size="13" font-weight="600" fill="#eee">Token Hash Table</text>
+<text x="585" y="346" text-anchor="middle" font-size="11" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">gAleMasterHashTable</text>
+<text x="585" y="366" text-anchor="middle" font-size="12" font-weight="500" fill="#c33">tcpip.sys duplicates token internally</text>
+<text x="585" y="386" text-anchor="middle" font-size="12" font-weight="500" fill="#c33">No NtDuplicateToken call is made</text>
+<line x1="370" y1="350" x2="402" y2="350" stroke="#c33" stroke-width="2.0"/>
+<path d="M 410,350 L 402,345.5 L 402,354.5 z" fill="#c33" stroke="none"/>
+<circle cx="390" cy="336" r="10" fill="#c33"/>
+<text x="390" y="340" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">5</text>
+<line x1="410" y1="374" x2="378" y2="374" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3"/>
+<path d="M 370,374 L 378,369.5 L 378,378.5 z" fill="#888" stroke="none"/>
+<circle cx="390" cy="388" r="10" fill="#888"/>
+<text x="390" y="392" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">6</text>
+<line x1="350" y1="300" x2="720" y2="256" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3"/>
+<line x1="720" y1="228" x2="682" y2="200" stroke="#888" stroke-width="1.2" stroke-dasharray="5,3"/>
+<path d="M 682,190 L 677,200 L 687,200 z" fill="#888" stroke="none"/>
+<circle cx="720" cy="242" r="10" fill="#888"/>
+<text x="720" y="246" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">7</text>
+<line x1="195" y1="404" x2="360" y2="426" stroke="#555" stroke-width="1" stroke-dasharray="5,3"/>
+<rect x="20" y="426" width="740" height="44" rx="0" fill="#252525" stroke="#444" stroke-width="1"/>
+<text x="390" y="445" text-anchor="middle" font-size="11" font-weight="500" fill="#ccc">Filter Engine (50+ kernel-mode layers)</text>
+<text x="390" y="461" text-anchor="middle" font-size="9.5" font-weight="400" fill="#888">Inspects packets, applies firewall rules, invokes callouts</text>
+<rect x="20" y="482" width="740" height="38" rx="0" fill="#252525" stroke="#444" stroke-width="1"/>
+<text x="390" y="498" text-anchor="middle" font-size="11" font-weight="500" fill="#ccc">Network Stack (TCP/IP)</text>
+<text x="390" y="514" text-anchor="middle" font-size="9.5" font-weight="400" fill="#888">Inbound and outbound network traffic</text>
+<line x1="380" y1="470" x2="380" y2="474" stroke="#555" stroke-width="1.5"/>
+<path d="M 380,482 L 375.5,474 L 384.5,474 z" fill="#555" stroke="none"/>
+<line x1="400" y1="482" x2="400" y2="478" stroke="#555" stroke-width="1.5"/>
+<path d="M 400,470 L 395.5,478 L 404.5,478 z" fill="#555" stroke="none"/>
+</g></svg>

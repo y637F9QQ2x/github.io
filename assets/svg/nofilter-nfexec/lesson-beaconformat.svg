@@ -1,0 +1,64 @@
+<svg viewBox="0 0 860 468" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="468"><rect width="860" height="468" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="30" text-anchor="middle" font-size="14" font-weight="500" fill="#111" letter-spacing="0.04em">BeaconFormatAlloc — WHY IT BREAKS AND HOW TO FIX IT</text>
+<rect x="0" y="50" width="780" height="226" rx="0" fill="#fff" stroke="#c33" stroke-width="1.8"/>
+<rect x="0" y="50" width="780" height="30" rx="0" fill="#c33" stroke="#c33" stroke-width="1"/>
+<text x="390" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" letter-spacing="0.08em">THE BUG</text>
+<text x="24" y="98" text-anchor="start" font-size="12" font-weight="700" fill="#222">LocalAlloc signature:</text>
+<text x="24" y="124" text-anchor="start" font-size="14" font-weight="500" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">LocalAlloc(</text>
+<rect x="162" y="107" width="88" height="24" rx="0" fill="#e8f0ff" stroke="#36c" stroke-width="1"/>
+<text x="206" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#36c" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">uFlags</text>
+<text x="258" y="124" text-anchor="start" font-size="14" font-weight="400" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">,</text>
+<rect x="274" y="107" width="88" height="24" rx="0" fill="#e8fff0" stroke="#2a7" stroke-width="1"/>
+<text x="318" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">uBytes</text>
+<text x="370" y="124" text-anchor="start" font-size="14" font-weight="400" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">)</text>
+<text x="206" y="142" text-anchor="middle" font-size="11" font-weight="400" fill="#36c">flags</text>
+<text x="318" y="142" text-anchor="middle" font-size="11" font-weight="400" fill="#2a7">size (bytes)</text>
+<line x1="206" y1="152" x2="206.0" y2="175.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 206.0 185.0 L 201.5 175.0 L 210.5 175.0 z" fill="#c33" stroke="none"/>
+<line x1="318" y1="152" x2="318.0" y2="175.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 318.0 185.0 L 313.5 175.0 L 322.5 175.0 z" fill="#c33" stroke="none"/>
+<text x="24" y="178" text-anchor="start" font-size="12" font-weight="700" fill="#222">Havoc calls:</text>
+<text x="24" y="204" text-anchor="start" font-size="14" font-weight="500" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">LocalAlloc(</text>
+<rect x="162" y="187" width="88" height="24" rx="0" fill="#ffeaea" stroke="#c33" stroke-width="1.2"/>
+<text x="206" y="204" text-anchor="middle" font-size="13" font-weight="600" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">maxsz</text>
+<text x="258" y="204" text-anchor="start" font-size="14" font-weight="400" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">,</text>
+<rect x="274" y="187" width="88" height="24" rx="0" fill="#ffeaea" stroke="#c33" stroke-width="1.2"/>
+<text x="318" y="204" text-anchor="middle" font-size="14" font-weight="700" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">1</text>
+<text x="370" y="204" text-anchor="start" font-size="14" font-weight="400" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">)</text>
+<text x="206" y="222" text-anchor="middle" font-size="11" font-weight="400" fill="#c33">treated as flags</text>
+<text x="318" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#c33">size = 1 byte!</text>
+<text x="440" y="98" text-anchor="start" font-size="12" font-weight="700" fill="#222">Result in memory:</text>
+<text x="440" y="134" text-anchor="start" font-size="11" font-weight="400" fill="#888">expected:</text>
+<rect x="530" y="120" width="240" height="24" rx="0" fill="#f5f5f5" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="650" y="136" text-anchor="middle" font-size="11" font-weight="400" fill="#aaa">8192 bytes (never allocated)</text>
+<text x="440" y="172" text-anchor="start" font-size="11" font-weight="500" fill="#333">actual:</text>
+<rect x="530" y="158" width="16" height="24" rx="0" fill="#ffeaea" stroke="#c33" stroke-width="1.4"/>
+<text x="538" y="174" text-anchor="middle" font-size="9" font-weight="700" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">1B</text>
+<rect x="548" y="158" width="222" height="24" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="659" y="174" text-anchor="middle" font-size="10" font-weight="400" fill="#999">adjacent heap memory</text>
+<text x="440" y="210" text-anchor="start" font-size="11" font-weight="500" fill="#333">write:</text>
+<rect x="530" y="196" width="16" height="24" rx="0" fill="#c33" stroke="#a22" stroke-width="1.2"/>
+<text x="538" y="212" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">H</text>
+<rect x="546" y="196" width="200" height="24" rx="0" fill="#ff6b6b" stroke="#c33" stroke-width="1.2"/>
+<text x="646" y="212" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ello, World!...</text>
+<text x="650" y="236" text-anchor="middle" font-size="11" font-weight="700" fill="#c33">heap corruption / silent crash</text>
+<text x="440" y="256" text-anchor="start" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ObjectApi.c line 348</text>
+<rect x="0" y="286" width="780" height="160" rx="0" fill="#fff" stroke="#2a7" stroke-width="1.8"/>
+<rect x="0" y="286" width="780" height="30" rx="0" fill="#2a7" stroke="#2a7" stroke-width="1"/>
+<text x="390" y="306" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" letter-spacing="0.06em">THE FIX — BYPASS BeaconFormat* ENTIRELY</text>
+<rect x="30" y="336" width="220" height="50" rx="0" fill="#e8fff0" stroke="#2a7" stroke-width="1.2"/>
+<text x="140" y="358" text-anchor="middle" font-size="13" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">out_init()</text>
+<text x="140" y="376" text-anchor="middle" font-size="11" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">MSVCRT$calloc(8192, 1)</text>
+<rect x="280" y="336" width="220" height="50" rx="0" fill="#e8fff0" stroke="#2a7" stroke-width="1.2"/>
+<text x="390" y="358" text-anchor="middle" font-size="13" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">out_printf()</text>
+<text x="390" y="376" text-anchor="middle" font-size="11" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">MSVCRT$vsnprintf(buf, ...)</text>
+<rect x="530" y="336" width="220" height="50" rx="0" fill="#e8fff0" stroke="#2a7" stroke-width="1.2"/>
+<text x="640" y="358" text-anchor="middle" font-size="13" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">out_flush()</text>
+<text x="640" y="376" text-anchor="middle" font-size="11" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">BeaconOutput(buf)</text>
+<line x1="250" y1="361" x2="270.0" y2="361.0" stroke="#2a7" stroke-width="2.0"/>
+<path d="M 280.0 361.0 L 270.0 365.5 L 270.0 356.5 z" fill="#2a7" stroke="none"/>
+<line x1="500" y1="361" x2="520.0" y2="361.0" stroke="#2a7" stroke-width="2.0"/>
+<path d="M 530.0 361.0 L 520.0 365.5 L 520.0 356.5 z" fill="#2a7" stroke="none"/>
+<rect x="30" y="400" width="690" height="28" rx="0" fill="#f0fcf0" stroke="#2a7" stroke-width="1.2"/>
+<rect x="30" y="400" width="200" height="28" rx="0" fill="#2a7" stroke="#2a7" stroke-width="1"/>
+<text x="130" y="419" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">Hello, World!...</text>
+<text x="475" y="419" text-anchor="middle" font-size="11" font-weight="500" fill="#2a7">8192 bytes total — plenty of room</text></g></svg>

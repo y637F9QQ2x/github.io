@@ -1,0 +1,59 @@
+<svg viewBox="0 0 820 422" xmlns="http://www.w3.org/2000/svg" width="820" height="422">
+<rect width="820" height="422" fill="#fff"/>
+<g transform="translate(20,0)">
+<text x="390" y="28" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#222">MODULE SHIFTING: COPY-ON-WRITE AT PAGE LEVEL</text>
+<text x="390" y="46" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#888">Clean mapping pages remain shared with disk. BOF writes only touch the shifted mapping's private COW copies.</text>
+<rect x="60" y="68" width="200" height="26" fill="#2a7" rx="0"/>
+<text x="160" y="85" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#fff">CLEAN MAPPING</text>
+<rect x="300" y="68" width="180" height="26" fill="#555" rx="0"/>
+<text x="390" y="85" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#fff">PHYSICAL PAGES</text>
+<rect x="520" y="68" width="200" height="26" fill="#c33" rx="0"/>
+<text x="620" y="85" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#fff">SHIFTED MAPPING</text>
+<rect x="60" y="100" width="200" height="38" fill="#eee" stroke="#ccc" rx="0"/>
+<text x="160" y="123" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#555">PE Header</text>
+<rect x="60" y="144" width="200" height="38" fill="#e8f5e9" stroke="#ccc" rx="0"/>
+<text x="160" y="167" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#2a7">.text  page 0</text>
+<rect x="60" y="188" width="200" height="38" fill="#e8f5e9" stroke="#ccc" rx="0"/>
+<text x="160" y="211" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#2a7">.text  page 1</text>
+<rect x="60" y="232" width="200" height="38" fill="#eee" stroke="#ccc" rx="0"/>
+<text x="160" y="255" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#555">.rdata page 0</text>
+<rect x="300" y="100" width="180" height="38" fill="#f5f5f5" stroke="#ccc" rx="0"/>
+<text x="390" y="123" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#444">Shared: PE Hdr</text>
+<rect x="300" y="144" width="180" height="38" fill="#f5f5f5" stroke="#ccc" rx="0"/>
+<text x="390" y="167" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#444">Shared: .text 0</text>
+<rect x="300" y="188" width="180" height="38" fill="#f5f5f5" stroke="#ccc" rx="0"/>
+<text x="390" y="211" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#444">Shared: .text 1</text>
+<rect x="300" y="232" width="180" height="38" fill="#f5f5f5" stroke="#ccc" rx="0"/>
+<text x="390" y="255" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#444">Shared: .rdata</text>
+<rect x="300" y="276" width="180" height="38" fill="#fce4e4" stroke="#ccc" rx="0"/>
+<text x="390" y="299" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#c33">COW: .text 0</text>
+<rect x="300" y="320" width="180" height="38" fill="#fce4e4" stroke="#ccc" rx="0"/>
+<text x="390" y="343" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#c33">COW: .text 1</text>
+<rect x="520" y="100" width="200" height="38" fill="#eee" stroke="#ccc" rx="0"/>
+<text x="620" y="123" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#555">PE Header</text>
+<rect x="520" y="144" width="200" height="38" fill="#fce4e4" stroke="#ccc" rx="0"/>
+<text x="620" y="167" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#c33">.text  page 0</text>
+<rect x="520" y="188" width="200" height="38" fill="#fce4e4" stroke="#ccc" rx="0"/>
+<text x="620" y="211" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#c33">.text  page 1</text>
+<rect x="520" y="232" width="200" height="38" fill="#eee" stroke="#ccc" rx="0"/>
+<text x="620" y="255" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" fill="#555">.rdata page 0</text>
+<line x1="262" y1="119" x2="291" y2="119" stroke="#2a7" stroke-width="1.5"/>
+<path d="M298,119 L291,115.5 L291,122.5 Z" fill="#2a7" stroke="none"/>
+<line x1="262" y1="163" x2="291" y2="163" stroke="#2a7" stroke-width="1.5"/>
+<path d="M298,163 L291,159.5 L291,166.5 Z" fill="#2a7" stroke="none"/>
+<line x1="262" y1="207" x2="291" y2="207" stroke="#2a7" stroke-width="1.5"/>
+<path d="M298,207 L291,203.5 L291,210.5 Z" fill="#2a7" stroke="none"/>
+<line x1="262" y1="251" x2="291" y2="251" stroke="#2a7" stroke-width="1.5"/>
+<path d="M298,251 L291,247.5 L291,254.5 Z" fill="#2a7" stroke="none"/>
+<line x1="518" y1="119" x2="489" y2="119" stroke="#888" stroke-width="1.5"/>
+<path d="M482,119 L489,115.5 L489,122.5 Z" fill="#888" stroke="none"/>
+<line x1="518" y1="163" x2="489" y2="295" stroke="#c33" stroke-width="1.5"/>
+<path d="M482,295 L489,291.5 L489,298.5 Z" fill="#c33" stroke="none"/>
+<line x1="518" y1="207" x2="489" y2="339" stroke="#c33" stroke-width="1.5"/>
+<path d="M482,339 L489,335.5 L489,342.5 Z" fill="#c33" stroke="none"/>
+<line x1="518" y1="251" x2="489" y2="251" stroke="#888" stroke-width="1.5"/>
+<path d="M482,251 L489,247.5 L489,254.5 Z" fill="#888" stroke="none"/>
+<text x="390" y="392" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#2a7" font-weight="600">After NtUnmapViewOfSection: COW pages (red) are freed. Shared pages (green arrows) remain unchanged.</text>
+<text x="390" y="408" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#666">Moneta compares clean mapping against disk &#x2192; byte-identical &#x2192; zero IOCs.</text>
+</g>
+</svg>

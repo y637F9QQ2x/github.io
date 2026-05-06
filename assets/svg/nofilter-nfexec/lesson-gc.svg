@@ -1,0 +1,24 @@
+<svg viewBox="0 0 860 268" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="268"><rect width="860" height="268" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">GARBAGE COLLECTION — WHY GUI BUTTONS CRASH AFTER IDLE TIME</text>
+<rect x="25" y="56" width="230" height="120" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.4"/>
+<text x="140" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#2a7">Button created</text>
+<text x="140" y="98" text-anchor="middle" font-size="10" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">Python: cb = lambda: ...</text>
+<text x="140" y="116" text-anchor="middle" font-size="10" font-weight="400" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">C++: lambda stores &amp;cb</text>
+<text x="140" y="134" text-anchor="middle" font-size="10" font-weight="700" fill="#2a7">Button works fine</text>
+<line x1="255" y1="116" x2="265.0" y2="116.0" stroke="#666" stroke-width="2.0"/>
+<path d="M 275.0 116.0 L 265.0 120.5 L 265.0 111.5 z" fill="#666" stroke="none"/>
+<rect x="275" y="56" width="230" height="120" rx="0" fill="#fde8e8" stroke="#c33" stroke-width="1.4"/>
+<text x="390" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#c33">GC runs (idle)</text>
+<text x="390" y="98" text-anchor="middle" font-size="10" font-weight="400" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">Python: GC collects cb</text>
+<text x="390" y="116" text-anchor="middle" font-size="10" font-weight="400" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">C++: &amp;cb now DANGLING</text>
+<text x="390" y="134" text-anchor="middle" font-size="10" font-weight="700" fill="#c33">Memory freed</text>
+<line x1="505" y1="116" x2="515.0" y2="116.0" stroke="#c33" stroke-width="2.0"/>
+<path d="M 525.0 116.0 L 515.0 120.5 L 515.0 111.5 z" fill="#c33" stroke="none"/>
+<rect x="525" y="56" width="230" height="120" rx="0" fill="#c33" stroke="#a22" stroke-width="1.4"/>
+<text x="640" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Button clicked</text>
+<text x="640" y="98" text-anchor="middle" font-size="10" font-weight="400" fill="#fff" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">C++: calls &amp;cb</text>
+<text x="640" y="116" text-anchor="middle" font-size="10" font-weight="400" fill="#fff" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">SEGFAULT</text>
+<text x="640" y="134" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">no stack trace</text>
+<rect x="0" y="196" width="780" height="50" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1.4"/>
+<text x="14" y="216" text-anchor="start" font-size="12" font-weight="700" fill="#2a7">Fix:</text>
+<text x="50" y="216" text-anchor="start" font-size="11" font-weight="500" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">_prevent_gc.append(cb)  # prevent GC from collecting</text>
+<text x="14" y="236" text-anchor="start" font-size="10" font-weight="400" fill="#555">Module-level list holds all callback closures alive for the process lifetime.</text></g></svg>

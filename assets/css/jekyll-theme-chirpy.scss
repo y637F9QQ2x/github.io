@@ -1,0 +1,21 @@
+---
+---
+@use 'main {%- if jekyll.environment == 'production' -%} .bundle {%- endif -%} ';
+
+/* Full-width images — target both direct img and Chirpy's figure wrapper */
+.post-content img,
+.post-content figure img,
+.post-content figure { width: 100% !important; max-width: 100% !important; height: auto !important; }
+
+/* Remove italic from sidebar tagline */
+#sidebar .site-subtitle { font-style: normal !important; }
+
+/* This post is licensed under CC BY 4.0 (locale override ineffective — kept as CSS) */
+.license-wrapper {
+  display: none !important;
+}
+
+/* Hide author line (kept as CSS — removing requires _layouts/post.html override) */
+.post-meta .d-flex.justify-content-between > span:first-child {
+  display: none !important;
+}

@@ -1,0 +1,30 @@
+<svg viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="820" height="320">
+<rect width="820" height="320" fill="#fff"/>
+<g transform="translate(20,0)">
+<text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">THE SQL QUERY ANATOMY — WHERE prepare() PROTECTS AND WHERE IT DOES NOT</text>
+<rect x="20" y="44" width="740" height="1" fill="#eee" stroke="none"/>
+<rect x="0" y="140" width="780" height="46" fill="#282a36" stroke="none"/>
+<text x="20" y="170" text-anchor="start" font-size="10.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">SELECT * FROM wp_posts</text>
+<text x="153.98" y="170" text-anchor="start" font-size="10.5" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace"> WHERE user_login = </text>
+<text x="275.78" y="170" text-anchor="start" font-size="12" font-weight="700" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">%s</text>
+<text x="289.7" y="170" text-anchor="start" font-size="10.5" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace"> ORDER BY </text>
+<text x="350.59999999999997" y="170" text-anchor="start" font-size="11" font-weight="700" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">$_GET['orderby']</text>
+<text x="452.67999999999995" y="170" text-anchor="start" font-size="10.5" font-weight="400" fill="#f8f8f2" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace"> LIMIT </text>
+<text x="495.30999999999995" y="170" text-anchor="start" font-size="12" font-weight="700" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">%d</text>
+<path d="M 271.78,134 L 271.78,100 L 293.7,100 L 293.7,134" stroke="#2a7" stroke-width="2" fill="none"/>
+<text x="282.0" y="94" text-anchor="middle" font-size="11" font-weight="600" fill="#2a7">prepare() protects</text>
+<text x="282.0" y="78" text-anchor="middle" font-size="10" font-weight="400" fill="#2a7">Value is quoted and escaped</text>
+<path d="M 491.30999999999995,134 L 491.30999999999995,100 L 513.23,100 L 513.23,134" stroke="#2a7" stroke-width="2" fill="none"/>
+<text x="502.0" y="94" text-anchor="middle" font-size="11" font-weight="600" fill="#2a7">prepare() protects</text>
+<text x="502.0" y="78" text-anchor="middle" font-size="10" font-weight="400" fill="#2a7">Integer is cast safely</text>
+<path d="M 346.59999999999997,192 L 346.59999999999997,226 L 456.67999999999995,226 L 456.67999999999995,192" stroke="#c33" stroke-width="2" fill="none"/>
+<text x="401.0" y="242" text-anchor="middle" font-size="11" font-weight="600" fill="#c33">NOT protected by prepare()</text>
+<text x="401.0" y="260" text-anchor="middle" font-size="10" font-weight="400" fill="#c33">Structural position — attacker controls column name</text>
+<text x="401.0" y="88" text-anchor="middle" font-size="11" font-weight="600" fill="#c33">Attacker input</text>
+<line x1="401.0" y1="96" x2="401.0" y2="138" stroke="#c33" stroke-width="2"/>
+<path d="M 401.0,142 L 397.0,134 L 405.0,134 z" fill="#c33" stroke="none"/>
+<rect x="20" y="282" width="12" height="12" fill="#2a7" stroke="none"/>
+<text x="38" y="292" text-anchor="start" font-size="10.5" font-weight="400" fill="#666">%s, %d, %f = value placeholders (safe)</text>
+<rect x="380" y="282" width="12" height="12" fill="#c33" stroke="none"/>
+<text x="398" y="292" text-anchor="start" font-size="10.5" font-weight="400" fill="#666">Direct concatenation = structural injection (vulnerable)</text>
+</g></svg>

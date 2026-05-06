@@ -1,0 +1,67 @@
+<svg viewBox="0 0 860 630" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="630"><rect width="860" height="630" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="30" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.05em">NFEXEC POWERSHELL MODE — VIEW INSIDE THE BOF PROCESS</text>
+<rect x="20" y="46" width="740" height="1" rx="0" fill="#eee" stroke="none"/>
+<rect x="0" y="60" width="780" height="526" rx="0" fill="none" stroke="#888" stroke-width="1.5"/>
+<rect x="0" y="60" width="780" height="26" rx="0" fill="#222" stroke="#222" stroke-width="1"/>
+<text x="14" y="78" text-anchor="start" font-size="11.5" font-weight="600" fill="#fff" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">BOF process — virtual address space</text>
+<text x="766" y="78" text-anchor="end" font-size="10" font-weight="400" fill="#aaa" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">(target.exe)</text>
+<text x="202" y="104" text-anchor="middle" font-size="11" font-weight="600" fill="#666" letter-spacing="0.06em">Loaded modules</text>
+<text x="588" y="104" text-anchor="middle" font-size="11" font-weight="600" fill="#666" letter-spacing="0.06em">CLR-managed code</text>
+<rect x="18" y="120" width="368" height="116" rx="0" fill="#fff" stroke="#666" stroke-width="1.4"/>
+<rect x="18" y="120" width="368" height="26" rx="0" fill="#eaeaea" stroke="#666" stroke-width="1.4"/>
+<text x="32" y="138" text-anchor="start" font-size="11.5" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ntdll.dll</text>
+<circle cx="40" cy="164" r="11" fill="#444"/><text x="40" y="168.66666666666666" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">1</text>
+<text x="60" y="168" text-anchor="start" font-size="10" font-weight="500" fill="#222">PEB walk locates ntdll's base address</text>
+<text x="60" y="183" text-anchor="start" font-size="10" font-weight="400" fill="#444">Halo's Gate recovers SSNs; find a syscall;ret gadget</text>
+<rect x="36" y="202" width="58" height="18" rx="0" fill="#c33" stroke="#c33" stroke-width="1"/>
+<text x="65" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" letter-spacing="0.04em" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">HWBP</text>
+<text x="100" y="215" text-anchor="start" font-size="10" font-weight="500" fill="#333">set on EtwEventWrite</text>
+<rect x="18" y="250" width="368" height="92" rx="0" fill="#fff" stroke="#666" stroke-width="1.4"/>
+<rect x="18" y="250" width="368" height="26" rx="0" fill="#eaeaea" stroke="#666" stroke-width="1.4"/>
+<text x="32" y="268" text-anchor="start" font-size="11.5" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">mscoree.dll  +  clr.dll</text>
+<circle cx="40" cy="294" r="11" fill="#444"/><text x="40" y="298.6666666666667" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">2</text>
+<text x="60" y="298" text-anchor="start" font-size="10" font-weight="500" fill="#222">CLRCreateInstance gets ICLRMetaHost</text>
+<text x="60" y="313" text-anchor="start" font-size="10" font-weight="400" fill="#444">IsLoadable check ensures v4.0 runtime</text>
+<text x="60" y="330" text-anchor="start" font-size="10" font-weight="400" fill="#444">Start() — CLR now running in this process</text>
+<rect x="18" y="356" width="368" height="116" rx="0" fill="#fff" stroke="#666" stroke-width="1.4"/>
+<rect x="18" y="356" width="368" height="26" rx="0" fill="#eaeaea" stroke="#666" stroke-width="1.4"/>
+<text x="32" y="374" text-anchor="start" font-size="11.5" font-weight="600" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">amsi.dll</text>
+<circle cx="40" cy="400" r="11" fill="#444"/><text x="40" y="404.6666666666667" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">3</text>
+<text x="60" y="404" text-anchor="start" font-size="10" font-weight="500" fill="#222">LdrLoadDll forces amsi.dll into the process</text>
+<text x="60" y="419" text-anchor="start" font-size="10" font-weight="400" fill="#666">(needed before .NET tries to scan the assembly)</text>
+<rect x="36" y="438" width="58" height="18" rx="0" fill="#c33" stroke="#c33" stroke-width="1"/>
+<text x="65" y="451" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" letter-spacing="0.04em" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">HWBP</text>
+<text x="100" y="451" text-anchor="start" font-size="10" font-weight="500" fill="#333">set on AmsiScanBuffer</text>
+<rect x="414" y="120" width="348" height="352" rx="0" fill="#fafcff" stroke="#36c" stroke-width="1.4" stroke-dasharray="6,3"/>
+<rect x="414" y="120" width="348" height="26" rx="0" fill="#dde6f5" stroke="#36c" stroke-width="1.4"/>
+<circle cx="436" cy="133" r="11" fill="#36c"/><text x="436" y="137.66666666666666" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">4</text>
+<text x="456" y="138" text-anchor="start" font-size="11.5" font-weight="600" fill="#36c">AppDomain</text>
+<text x="748" y="138" text-anchor="end" font-size="10" font-weight="400" fill="#369" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">.NET logical boundary</text>
+<rect x="428" y="160" width="320" height="64" rx="0" fill="#fff" stroke="#36c" stroke-width="1"/>
+<circle cx="450" cy="182" r="11" fill="#444"/><text x="450" y="186.66666666666666" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">5</text>
+<text x="470" y="182" text-anchor="start" font-size="11" font-weight="600" fill="#222">PowershellRunner Assembly</text>
+<text x="470" y="199" text-anchor="start" font-size="10" font-weight="500" fill="#555" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">loaded via AppDomain.Load_3()</text>
+<text x="470" y="214" text-anchor="start" font-size="10" font-weight="500" fill="#555">embedded byte array, 4608 B (GPLv3)</text>
+<rect x="428" y="236" width="320" height="64" rx="0" fill="#fff" stroke="#36c" stroke-width="1"/>
+<circle cx="450" cy="258" r="11" fill="#444"/><text x="450" y="262.6666666666667" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">6</text>
+<text x="470" y="258" text-anchor="start" font-size="11" font-weight="600" fill="#222">Wrapper PowerShell script</text>
+<text x="470" y="275" text-anchor="start" font-size="10" font-weight="500" fill="#555">impersonates SYSTEM token, runs cmd,</text>
+<text x="470" y="290" text-anchor="start" font-size="10" font-weight="500" fill="#555">writes stdout to a named pipe</text>
+<rect x="428" y="312" width="320" height="86" rx="0" fill="#c33" stroke="#a22" stroke-width="1.6"/>
+<circle cx="450" cy="334" r="11" fill="#fff" stroke="#a22" stroke-width="1.4"/>
+<text x="450" y="338" text-anchor="middle" font-size="11" font-weight="700" fill="#c33">7</text>
+<text x="470" y="334" text-anchor="start" font-size="11.5" font-weight="700" fill="#fff">Invoke_3()  —  blocking call</text>
+<text x="470" y="352" text-anchor="start" font-size="10" font-weight="500" fill="#fff">executes the assembly's RunPS method</text>
+<text x="470" y="368" text-anchor="start" font-size="10" font-weight="600" fill="#fff" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">BOF thread blocks here until it returns</text>
+<text x="470" y="385" text-anchor="start" font-size="10" font-weight="600" fill="#ffe" letter-spacing="0.03em">this is where the payload actually runs</text>
+<path d="M 386 296 C 416 296, 378 137, 408 137" stroke="#36c" stroke-width="2.0" fill="none"/>
+<path d="M 408.00 137.00 L 397.00 142.00 L 397.00 132.00 z" fill="#36c" stroke="none"/>
+<rect x="428" y="494" width="320" height="30" rx="0" fill="#eef3fc" stroke="#36c" stroke-width="1.4"/>
+<text x="588" y="513" text-anchor="middle" font-size="10" font-weight="600" fill="#36c">named pipe   (in-process bidirectional buffer)</text>
+<line x1="588" y1="398" x2="588.00" y2="482.00" stroke="#36c" stroke-width="2.0" stroke-linecap="butt"/>
+<path d="M 588.00 493.00 L 583.00 482.00 L 593.00 482.00 z" fill="#36c" stroke="none"/>
+<text x="596" y="449" text-anchor="start" font-size="10" font-weight="500" fill="#36c" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">stdout</text>
+<circle cx="40" cy="554" r="11" fill="#444"/><text x="40" y="558.6666666666666" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">8</text>
+<text x="108" y="558" text-anchor="start" font-size="10.5" font-weight="500" fill="#222">BOF thread (Havoc agent) reads the pipe, restores debug state, returns</text>
+<path d="M 428 509 C 368 509, 78 554, 56 554" stroke="#36c" stroke-width="2.0" fill="none"/>
+<path d="M 56.00 554.00 L 67.00 549.00 L 67.00 559.00 z" fill="#36c" stroke="none"/>
+<text x="390" y="608" text-anchor="middle" font-size="10" font-weight="400" fill="#666">Numbered circles show execution order. The blue dashed boundary is logical (a CLR construct), not a separate OS process.</text></g></svg>

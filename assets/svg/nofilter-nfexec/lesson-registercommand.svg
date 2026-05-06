@@ -1,0 +1,37 @@
+<svg viewBox="0 0 860 242" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="242"><rect width="860" height="242" fill="#fff"/><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">RegisterCommand — THE ACTUAL SIGNATURE</text>
+<rect x="0" y="50" width="780" height="28" rx="0" fill="#c33" stroke="#c33" stroke-width="1"/>
+<text x="390" y="69" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.04em">DOCUMENTATION SAYS: 8 ARGUMENTS, 5th IS STRING</text>
+<rect x="0" y="78" width="780" height="50" rx="0" fill="#fff" stroke="#c33" stroke-width="1.8"/>
+<rect x="34" y="88" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="75" y="106" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 1</text>
+<rect x="124" y="88" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="165" y="106" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 2</text>
+<rect x="214" y="88" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="255" y="106" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 3</text>
+<rect x="304" y="88" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="345" y="106" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 4</text>
+<rect x="394" y="88" width="82" height="28" rx="0" fill="#ffeaea" stroke="#c33" stroke-width="1"/>
+<text x="435" y="106" text-anchor="middle" font-size="10" font-weight="600" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 5 (str)</text>
+<rect x="484" y="88" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="525" y="106" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 6</text>
+<rect x="574" y="88" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="615" y="106" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 7</text>
+<rect x="664" y="88" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="705" y="106" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 8</text>
+<rect x="0" y="142" width="780" height="28" rx="0" fill="#2a7" stroke="#2a7" stroke-width="1"/>
+<text x="390" y="161" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" letter-spacing="0.04em">ACTUAL: 7 ARGUMENTS, 5th IS INT (0)</text>
+<rect x="0" y="170" width="780" height="50" rx="0" fill="#fff" stroke="#2a7" stroke-width="1.8"/>
+<rect x="79" y="180" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="120" y="198" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 1</text>
+<rect x="169" y="180" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="210" y="198" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 2</text>
+<rect x="259" y="180" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="300" y="198" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 3</text>
+<rect x="349" y="180" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="390" y="198" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 4</text>
+<rect x="439" y="180" width="82" height="28" rx="0" fill="#e8f5e9" stroke="#2a7" stroke-width="1"/>
+<text x="480" y="198" text-anchor="middle" font-size="9" font-weight="600" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 5 (int=0)</text>
+<rect x="529" y="180" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="570" y="198" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 6</text>
+<rect x="619" y="180" width="82" height="28" rx="0" fill="#f8f8f8" stroke="#ddd" stroke-width="1"/>
+<text x="660" y="198" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">arg 7</text></g></svg>

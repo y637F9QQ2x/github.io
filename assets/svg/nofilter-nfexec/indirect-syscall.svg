@@ -1,0 +1,95 @@
+<svg viewBox="0 0 860 490" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="490"><rect width="860" height="490" fill="#fff"/><defs>
+<marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#777"/>
+</marker>
+<marker id="arrowR" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#c33"/>
+</marker>
+<marker id="arrowGr" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+  <path d="M0,0 L0,7 L8,3.5 z" fill="#2a7"/>
+</marker>
+</defs><g transform="translate(40,0)"><text x="390" y="28" text-anchor="middle" font-size="13" font-weight="500" fill="#111" letter-spacing="0.05em">INDIRECT SYSCALL — STEP-BY-STEP MECHANISM</text>
+<line x1="20" y1="42" x2="760" y2="42" stroke="#eee" stroke-width="1"/>
+<text x="390" y="70" text-anchor="middle" font-size="10" font-weight="500" fill="#444" letter-spacing="0.04em">STAGE 1 — Normal syscall</text>
+<rect x="20" y="84" width="220" height="78" rx="0" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+<text x="130" y="104" text-anchor="middle" font-size="10" font-weight="500" fill="#111">BOF / Application</text>
+<text x="130" y="122" text-anchor="middle" font-size="9" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">calls NtOpenProcess(...)</text>
+<text x="130" y="144" text-anchor="middle" font-size="8" font-weight="400" fill="#888">(user-mode code can't run</text>
+<text x="130" y="154" text-anchor="middle" font-size="8" font-weight="400" fill="#888">'syscall' directly — needs ntdll)</text>
+<rect x="300" y="84" width="220" height="78" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="300" y="84" width="220" height="18" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="410" y="97" text-anchor="middle" font-size="9" font-weight="500" fill="#333">ntdll!NtOpenProcess (8 bytes)</text>
+<text x="312" y="116" text-anchor="start" font-size="8.5" font-weight="400" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">mov r10, rcx</text>
+<text x="312" y="128" text-anchor="start" font-size="8.5" font-weight="400" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">mov eax, 0x26   ; SSN</text>
+<text x="312" y="140" text-anchor="start" font-size="8.5" font-weight="500" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">syscall         ; → kernel</text>
+<text x="312" y="152" text-anchor="start" font-size="8.5" font-weight="400" fill="#333" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ret</text>
+<rect x="580" y="84" width="220" height="78" rx="0" fill="#222" stroke="#222" stroke-width="1"/>
+<text x="690" y="106" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">Kernel (ring 0)</text>
+<text x="690" y="126" text-anchor="middle" font-size="8.5" font-weight="400" fill="#bbb">looks up SSN in</text>
+<text x="690" y="138" text-anchor="middle" font-size="8.5" font-weight="400" fill="#bbb">service table</text>
+<text x="690" y="154" text-anchor="middle" font-size="8.5" font-weight="400" fill="#bbb">→ runs the function</text>
+<line x1="244" y1="123" x2="294" y2="123" stroke="#777" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<text x="270" y="117" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666">call</text>
+<line x1="524" y1="123" x2="574" y2="123" stroke="#777" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<text x="550" y="117" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666">syscall</text>
+<line x1="20" y1="180" x2="760" y2="180" stroke="#eee" stroke-width="1"/>
+<text x="390" y="200" text-anchor="middle" font-size="10" font-weight="500" fill="#444" letter-spacing="0.04em">STAGE 2 — EDR's hook</text>
+<rect x="20" y="214" width="220" height="78" rx="0" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+<text x="130" y="234" text-anchor="middle" font-size="10" font-weight="500" fill="#111">BOF / Application</text>
+<text x="130" y="252" text-anchor="middle" font-size="9" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">calls NtOpenProcess(...)</text>
+<text x="130" y="274" text-anchor="middle" font-size="8" font-weight="400" fill="#888">(unaware that ntdll has</text>
+<text x="130" y="284" text-anchor="middle" font-size="8" font-weight="400" fill="#888">been modified)</text>
+<rect x="300" y="214" width="220" height="78" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="300" y="214" width="220" height="18" rx="0" fill="#fce4e4" stroke="#ccc" stroke-width="1"/>
+<text x="410" y="227" text-anchor="middle" font-size="9" font-weight="500" fill="#c33">ntdll!NtOpenProcess (HOOKED)</text>
+<rect x="301" y="237" width="218" height="12" rx="0" fill="#fce4e4" stroke="none" stroke-width="1"/>
+<text x="312" y="246" text-anchor="start" font-size="8.5" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">jmp edr.dll!hook   ; ★</text>
+<text x="312" y="258" text-anchor="start" font-size="8.5" font-weight="400" fill="#bbb" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">mov eax, 0x26   ; (skipped)</text>
+<text x="312" y="270" text-anchor="start" font-size="8.5" font-weight="400" fill="#bbb" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">syscall         ; (skipped)</text>
+<text x="312" y="282" text-anchor="start" font-size="8.5" font-weight="400" fill="#bbb" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ret             ; (skipped)</text>
+<rect x="580" y="214" width="220" height="78" rx="0" fill="#fff5f5" stroke="#c33" stroke-width="1"/>
+<text x="690" y="236" text-anchor="middle" font-size="10" font-weight="500" fill="#c33">EDR Hook Handler</text>
+<text x="690" y="256" text-anchor="middle" font-size="8.5" font-weight="400" fill="#a33">inspects arguments</text>
+<text x="690" y="268" text-anchor="middle" font-size="8.5" font-weight="400" fill="#a33">logs the call</text>
+<text x="690" y="284" text-anchor="middle" font-size="8.5" font-weight="400" fill="#a33">blocks if suspicious</text>
+<line x1="244" y1="253" x2="294" y2="253" stroke="#777" stroke-width="1.5" marker-end="url(#arrowG)"/>
+<text x="270" y="247" text-anchor="middle" font-size="8.5" font-weight="400" fill="#666">call</text>
+<line x1="524" y1="253" x2="574" y2="253" stroke="#c33" stroke-width="2" marker-end="url(#arrowR)"/>
+<text x="550" y="247" text-anchor="middle" font-size="8.5" font-weight="500" fill="#c33">JMP fires</text>
+<text x="550" y="271" text-anchor="middle" font-size="8" font-weight="400" fill="#a33">(★ above)</text>
+<line x1="20" y1="310" x2="760" y2="310" stroke="#eee" stroke-width="1"/>
+<text x="390" y="330" text-anchor="middle" font-size="10" font-weight="500" fill="#444" letter-spacing="0.04em">STAGE 3 — Indirect syscall</text>
+<rect x="20" y="344" width="220" height="124" rx="0" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+<rect x="20" y="344" width="220" height="18" rx="0" fill="#eef5ee" stroke="#ccc" stroke-width="1"/>
+<text x="130" y="357" text-anchor="middle" font-size="9" font-weight="500" fill="#2a7">BOF — our own syscall stub</text>
+<text x="32" y="376" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">; resolved at runtime:</text>
+<text x="32" y="388" text-anchor="start" font-size="8.5" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">;   gadget = 0F 05 C3 in ntdll</text>
+<text x="32" y="400" text-anchor="start" font-size="8.5" font-weight="400" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">mov r10, rcx</text>
+<text x="32" y="412" text-anchor="start" font-size="8.5" font-weight="400" fill="#222" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">mov eax, 0x26</text>
+<rect x="21" y="415" width="218" height="12" rx="0" fill="#e4f5e4" stroke="none" stroke-width="1"/>
+<text x="32" y="424" text-anchor="start" font-size="8.5" font-weight="500" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">jmp qword ptr [gadget]</text>
+<text x="130" y="440" text-anchor="middle" font-size="8" font-weight="400" fill="#666">[gadget] points INTO ntdll,</text>
+<text x="130" y="450" text-anchor="middle" font-size="8" font-weight="400" fill="#666">NOT to NtOpenProcess's entry</text>
+<rect x="300" y="344" width="220" height="124" rx="0" fill="#fff" stroke="#ccc" stroke-width="1"/>
+<rect x="300" y="344" width="220" height="18" rx="0" fill="#eee" stroke="#ccc" stroke-width="1"/>
+<text x="410" y="357" text-anchor="middle" font-size="9" font-weight="500" fill="#333">ntdll memory (read-only to BOF)</text>
+<text x="312" y="376" text-anchor="start" font-size="8" font-weight="400" fill="#999" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtOpenProcess:  (still hooked)</text>
+<text x="312" y="388" text-anchor="start" font-size="8.5" font-weight="400" fill="#aaa" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  jmp edr.dll!hook  ★  ←skipped</text>
+<text x="312" y="400" text-anchor="start" font-size="8.5" font-weight="400" fill="#aaa" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">  ...</text>
+<text x="312" y="416" text-anchor="start" font-size="8" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">; ── elsewhere in ntdll ──</text>
+<rect x="301" y="419" width="218" height="12" rx="0" fill="#e4f5e4" stroke="none" stroke-width="1"/>
+<text x="312" y="428" text-anchor="start" font-size="8.5" font-weight="500" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">syscall          ; 0F 05</text>
+<rect x="301" y="431" width="218" height="12" rx="0" fill="#e4f5e4" stroke="none" stroke-width="1"/>
+<text x="312" y="440" text-anchor="start" font-size="8.5" font-weight="500" fill="#2a7" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ret              ; C3</text>
+<text x="410" y="454" text-anchor="middle" font-size="8" font-weight="500" fill="#2a7">↑ THE 3-byte gadget (0F 05 C3)</text>
+<rect x="580" y="344" width="220" height="124" rx="0" fill="#222" stroke="#222" stroke-width="1"/>
+<text x="690" y="370" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">Kernel (ring 0)</text>
+<text x="690" y="394" text-anchor="middle" font-size="8.5" font-weight="400" fill="#bbb">syscall fires from</text>
+<text x="690" y="406" text-anchor="middle" font-size="8.5" font-weight="400" fill="#bbb">ntdll memory →</text>
+<text x="690" y="418" text-anchor="middle" font-size="8.5" font-weight="400" fill="#bbb">looks legitimate</text>
+<text x="690" y="440" text-anchor="middle" font-size="8.5" font-weight="500" fill="#9c9">(EDR hook never fires)</text>
+<line x1="316" y1="384" x2="504" y2="384" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="242" y1="421" x2="294" y2="425" stroke="#2a7" stroke-width="2.2" marker-end="url(#arrowGr)"/>
+<text x="270" y="437" text-anchor="middle" font-size="10" font-weight="600" fill="#2a7">JMP</text>
+<text x="270" y="449" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2a7">skips hooked entry</text>
+<line x1="524" y1="425" x2="574" y2="370" stroke="#2a7" stroke-width="2" marker-end="url(#arrowGr)"/></g></svg>

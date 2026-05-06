@@ -1,0 +1,55 @@
+<svg viewBox="0 0 820 644" xmlns="http://www.w3.org/2000/svg" width="820" height="644">
+<rect width="820" height="644" fill="#fff"/>
+<g transform="translate(20,0)">
+<text x="390" y="30" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#222">PEB WALK: API RESOLUTION WITHOUT HOOKED FUNCTIONS</text>
+<text x="390" y="50" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10.5" fill="#888">Red fields = pointer chain. Blue fields = hash-matched during lookup.</text>
+<rect x="250" y="66" width="280" height="58" fill="#fafafa" stroke="#ccc" rx="0"/>
+<rect x="250" y="66" width="280" height="28" fill="#555" rx="0"/>
+<text x="390" y="84" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#fff">Thread Environment</text>
+<text x="264" y="112" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" fill="#888">GS:[0x60]</text>
+<text x="330" y="112" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#c33">PEB*</text>
+<line x1="390" y1="126" x2="390" y2="130" stroke="#c33" stroke-width="2"/>
+<path d="M390,138 L385,130 L395,130 Z" fill="#c33" stroke="none"/>
+<rect x="230" y="140" width="320" height="58" fill="#fafafa" stroke="#ccc" rx="0"/>
+<rect x="230" y="140" width="320" height="28" fill="#555" rx="0"/>
+<text x="390" y="158" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#fff">PEB</text>
+<text x="244" y="186" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" fill="#888">+0x018</text>
+<text x="310" y="186" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#c33">Ldr (PEB_LDR_DATA*)</text>
+<line x1="390" y1="200" x2="390" y2="204" stroke="#c33" stroke-width="2"/>
+<path d="M390,212 L385,204 L395,204 Z" fill="#c33" stroke="none"/>
+<rect x="210" y="214" width="360" height="58" fill="#fafafa" stroke="#ccc" rx="0"/>
+<rect x="210" y="214" width="360" height="28" fill="#555" rx="0"/>
+<text x="390" y="232" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#fff">PEB_LDR_DATA</text>
+<text x="224" y="260" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" fill="#888">+0x020</text>
+<text x="290" y="260" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#c33">InMemoryOrderModuleList</text>
+<line x1="390" y1="274" x2="390" y2="278" stroke="#c33" stroke-width="2"/>
+<path d="M390,286 L385,278 L395,278 Z" fill="#c33" stroke="none"/>
+<rect x="190" y="288" width="400" height="82" fill="#fafafa" stroke="#ccc" rx="0"/>
+<rect x="190" y="288" width="400" height="28" fill="#555" rx="0"/>
+<text x="390" y="306" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#fff">LDR_DATA_TABLE_ENTRY</text>
+<text x="204" y="334" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" fill="#888">+0x020</text>
+<text x="270" y="334" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#c33">DllBase (module base address)</text>
+<text x="204" y="358" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" fill="#888">+0x048</text>
+<text x="270" y="358" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#36c">BaseDllName (hash to match)</text>
+<line x1="390" y1="372" x2="390" y2="376" stroke="#c33" stroke-width="2"/>
+<path d="M390,384 L385,376 L395,376 Z" fill="#c33" stroke="none"/>
+<rect x="190" y="386" width="400" height="58" fill="#fafafa" stroke="#ccc" rx="0"/>
+<rect x="190" y="386" width="400" height="28" fill="#555" rx="0"/>
+<text x="390" y="404" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#fff">IMAGE_DOS_HEADER (at DllBase)</text>
+<text x="204" y="432" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" fill="#888">+0x03C</text>
+<text x="270" y="432" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#c33">e_lfanew (offset to NT headers)</text>
+<line x1="390" y1="446" x2="390" y2="450" stroke="#c33" stroke-width="2"/>
+<path d="M390,458 L385,450 L395,450 Z" fill="#c33" stroke="none"/>
+<rect x="190" y="460" width="400" height="106" fill="#fafafa" stroke="#ccc" rx="0"/>
+<rect x="190" y="460" width="400" height="28" fill="#555" rx="0"/>
+<text x="390" y="478" text-anchor="middle" font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#fff">IMAGE_EXPORT_DIRECTORY</text>
+<text x="214" y="506" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#36c">AddressOfNames[] (RVA array)</text>
+<text x="214" y="530" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#36c">AddressOfNameOrdinals[] (index)</text>
+<text x="214" y="554" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#c33">AddressOfFunctions[] (RVA)</text>
+<rect x="180" y="582" width="420" height="40" fill="#e8f5e9" stroke="#2a7" rx="0"/>
+<text x="390" y="598" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#2a7">DllBase + AddressOfFunctions[ordinal]</text>
+<text x="390" y="614" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="10.5" fill="#555">= resolved function address (no API calls made)</text>
+<line x1="390" y1="568" x2="390" y2="572" stroke="#2a7" stroke-width="2"/>
+<path d="M390,580 L385,572 L395,572 Z" fill="#2a7" stroke="none"/>
+</g>
+</svg>

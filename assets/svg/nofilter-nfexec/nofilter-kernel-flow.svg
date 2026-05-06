@@ -1,0 +1,85 @@
+<svg viewBox="0 0 860 604" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif" width="860" height="604">
+<rect width="860" height="604" fill="#fff"/>
+<g transform="translate(40,0)">
+<text x="390" y="30" text-anchor="middle" font-size="14" font-weight="600" fill="#111" letter-spacing="0.04em">NOFILTER — KERNEL-SPACE TOKEN DUPLICATION FLOW</text>
+<rect x="20" y="46" width="740" height="1" fill="#eee" stroke="none"/>
+<rect x="10" y="58" width="360" height="456" rx="0" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<rect x="10" y="58" width="360" height="28" rx="0" fill="#555" stroke="none"/>
+<text x="24" y="77" text-anchor="start" font-size="11" font-weight="600" fill="#fff" letter-spacing="0.06em">USER-MODE (BOF THREAD)</text>
+<rect x="400" y="58" width="370" height="456" rx="0" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+<rect x="400" y="58" width="370" height="28" rx="0" fill="#222" stroke="none"/>
+<text x="414" y="77" text-anchor="start" font-size="11" font-weight="600" fill="#999" letter-spacing="0.06em">KERNEL-SPACE</text>
+<text x="756" y="77" text-anchor="end" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">tcpip.sys</text>
+<rect x="40" y="94" width="300" height="54" rx="0" fill="#fff" stroke="#bbb" stroke-width="1.2"/>
+<circle cx="58" cy="121" r="12" fill="#444"/>
+<text x="58" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
+<text x="80" y="116" text-anchor="start" font-size="12" font-weight="600" fill="#111">Find BFE Service PID</text>
+<text x="80" y="134" text-anchor="start" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">OpenSCManagerW + QueryServiceStatusEx</text>
+<line x1="190" y1="148" x2="190" y2="156" stroke="#999" stroke-width="1.5"/>
+<path d="M 190,164 L 186,156 L 194,156 z" fill="#999" stroke="none"/>
+<rect x="40" y="164" width="300" height="54" rx="0" fill="#fff" stroke="#bbb" stroke-width="1.2"/>
+<circle cx="58" cy="191" r="12" fill="#444"/>
+<text x="58" y="195" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+<text x="80" y="186" text-anchor="start" font-size="12" font-weight="600" fill="#111">Open Process Handles</text>
+<text x="80" y="204" text-anchor="start" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtOpenProcess (indirect syscall)</text>
+<line x1="190" y1="218" x2="190" y2="226" stroke="#999" stroke-width="1.5"/>
+<path d="M 190,234 L 186,226 L 194,226 z" fill="#999" stroke="none"/>
+<rect x="40" y="234" width="300" height="54" rx="0" fill="#fff" stroke="#bbb" stroke-width="1.2"/>
+<circle cx="58" cy="261" r="12" fill="#444"/>
+<text x="58" y="265" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+<text x="80" y="256" text-anchor="start" font-size="12" font-weight="600" fill="#111">Scan System Handle Table</text>
+<text x="80" y="274" text-anchor="start" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtQuerySystemInformation (class 64)</text>
+<line x1="190" y1="288" x2="190" y2="296" stroke="#999" stroke-width="1.5"/>
+<path d="M 190,304 L 186,296 L 194,296 z" fill="#999" stroke="none"/>
+<rect x="40" y="304" width="300" height="54" rx="0" fill="#fff" stroke="#bbb" stroke-width="1.2"/>
+<circle cx="58" cy="331" r="12" fill="#444"/>
+<text x="58" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text>
+<text x="80" y="326" text-anchor="start" font-size="12" font-weight="600" fill="#111">Find WfpAle Device Handle</text>
+<text x="80" y="344" text-anchor="start" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtQueryObject type + name filter</text>
+<line x1="190" y1="358" x2="190" y2="366" stroke="#999" stroke-width="1.5"/>
+<path d="M 190,374 L 186,366 L 194,366 z" fill="#999" stroke="none"/>
+<rect x="40" y="374" width="300" height="54" rx="0" fill="#fff" stroke="#bbb" stroke-width="1.2"/>
+<circle cx="58" cy="401" r="12" fill="#444"/>
+<text x="58" y="405" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5</text>
+<text x="80" y="396" text-anchor="start" font-size="12" font-weight="600" fill="#111">Find SYSTEM Token Handle</text>
+<text x="80" y="414" text-anchor="start" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">Token with TOKEN_DUPLICATE access</text>
+<line x1="190" y1="428" x2="190" y2="436" stroke="#999" stroke-width="1.5"/>
+<path d="M 190,444 L 186,436 L 194,436 z" fill="#999" stroke="none"/>
+<rect x="40" y="444" width="300" height="54" rx="0" fill="#fff" stroke="#bbb" stroke-width="1.2"/>
+<circle cx="58" cy="471" r="12" fill="#444"/>
+<text x="58" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">6</text>
+<text x="80" y="466" text-anchor="start" font-size="12" font-weight="600" fill="#111">NtSetInformationThread</text>
+<text x="80" y="484" text-anchor="start" font-size="10" font-weight="400" fill="#666" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">ThreadImpersonationToken (indirect syscall)</text>
+<rect x="420" y="138" width="330" height="56" rx="0" fill="#252525" stroke="#555" stroke-width="1.2"/>
+<rect x="420" y="138" width="330" height="26" rx="0" fill="#333" stroke="#555" stroke-width="1.2"/>
+<text x="585" y="156" text-anchor="middle" font-size="12" font-weight="600" fill="#eee">IOCTL 0x128000: Token Insert</text>
+<text x="585" y="182" text-anchor="middle" font-size="10.5" font-weight="400" fill="#aaa">Kernel copies token to WFP hash table</text>
+<line x1="585" y1="194" x2="585" y2="234" stroke="#555" stroke-width="1.5"/>
+<path d="M 585,242 L 581,234 L 589,234 z" fill="#555" stroke="none"/>
+<rect x="440" y="242" width="290" height="38" rx="0" fill="#2a2a2a" stroke="#555" stroke-width="1.2"/>
+<text x="585" y="258" text-anchor="middle" font-size="11" font-weight="500" fill="#ddd">WFP Token Hash Table</text>
+<text x="585" y="274" text-anchor="middle" font-size="10" font-weight="400" fill="#888" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">gAleMasterHashTable</text>
+<line x1="585" y1="280" x2="585" y2="320" stroke="#555" stroke-width="1.5"/>
+<path d="M 585,328 L 581,320 L 589,320 z" fill="#555" stroke="none"/>
+<rect x="420" y="328" width="330" height="56" rx="0" fill="#252525" stroke="#555" stroke-width="1.2"/>
+<rect x="420" y="328" width="330" height="26" rx="0" fill="#333" stroke="#555" stroke-width="1.2"/>
+<text x="585" y="346" text-anchor="middle" font-size="12" font-weight="600" fill="#eee">IOCTL 0x124008: Token Query</text>
+<text x="585" y="372" text-anchor="middle" font-size="10.5" font-weight="400" fill="#aaa">Kernel returns token from hash table</text>
+<rect x="410" y="432" width="350" height="40" rx="0" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+<text x="585" y="449" text-anchor="middle" font-size="10.5" font-weight="500" fill="#c33">Token duplication happens entirely in kernel.</text>
+<text x="585" y="465" text-anchor="middle" font-size="10" font-weight="400" fill="#888">User-mode hooks on NtDuplicateToken are not triggered.</text>
+<line x1="340" y1="384" x2="416.5" y2="177.4" stroke="#c33" stroke-width="2.0" stroke-dasharray="6,3"/>
+<path d="M 420,168 L 420.7,178.9 L 412.3,175.8 z" fill="#c33" stroke="none"/>
+<rect x="315" y="258" width="130" height="16" rx="0" fill="#fff" fill-opacity="0.92" stroke="none"/>
+<text x="380" y="270" text-anchor="middle" font-size="10" font-weight="500" fill="#c33" font-family="SFMono-Regular,Menlo,Monaco,Consolas,monospace">NtDeviceIoControlFile</text>
+<line x1="420" y1="358" x2="346.2" y2="450.2" stroke="#36c" stroke-width="2.0" stroke-dasharray="6,3"/>
+<path d="M 340,458 L 342.7,447.4 L 349.8,453.0 z" fill="#36c" stroke="none"/>
+<rect x="315" y="408" width="130" height="16" rx="0" fill="#fff" fill-opacity="0.92" stroke="none"/>
+<text x="380" y="420" text-anchor="middle" font-size="10" font-weight="500" fill="#36c">SYSTEM token returned</text>
+<line x1="190" y1="498" x2="190" y2="508" stroke="#2a7" stroke-width="2.0"/>
+<line x1="190" y1="508" x2="390" y2="524" stroke="#2a7" stroke-width="2.0"/>
+<path d="M 390,532 L 385,524 L 395,524 z" fill="#2a7" stroke="none"/>
+<rect x="230" y="532" width="320" height="50" rx="0" fill="#e4f5e4" stroke="#2a7" stroke-width="1.6"/>
+<text x="390" y="554" text-anchor="middle" font-size="12" font-weight="600" fill="#2a7">Thread now runs as NT AUTHORITY\SYSTEM</text>
+<text x="390" y="572" text-anchor="middle" font-size="10" font-weight="400" fill="#2a7">Verified with: token getuid</text>
+</g></svg>
